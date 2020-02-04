@@ -16,7 +16,7 @@ class Files:
 
 
 def check(program_name, language):
-    possible_errors = ["OSError: [Errno 27] File too large\n",
+    possible_errors = ['OSError: [Errno 27] File too large\n',
                        "MemoryError\n",
                        "TimeLimit\n"]
     files = Files()
@@ -27,42 +27,39 @@ def check(program_name, language):
                                    stdin=files.input,
                                    stdout=files.output,
                                    stderr=files.error)
+
         try:
-            (outs, errs) = process.communicate(timeout=2)
+            process.communicate(timeout=2)
         except subprocess.TimeoutExpired:
             files.error.write('TimeLimit\n')
             process.kill()
         process.kill()
         files.close()
-        error_size = os.path.getsize("./error")
-        output_size = os.path.getsize("./output")
-        # print(error_size, output_size)
 
+        output_size = os.path.getsize("./output")
         with open("./error", "r") as error_file:
             try:
                 error_text = error_file.readlines()[-1]
             except IndexError:
-                error_text = "no errors"
-        # print(error_text[:-1], error_text in possible_errors)
+                error_text = "NoErrors"
 
         if error_text not in possible_errors and output_size == 0:
             status = "CE"
-            print(status, process.returncode)
-        elif error_size != 0 and output_size != 0:
+            print(status)
+        elif error_text in possible_errors:
             if error_text == "TimeLimit\n":
                 status = "TL"
-                print(status, process.returncode)
+                print(status)
             elif error_text == "OSError: [Errno 27] File too large\n":
                 status = "OL"
-                print(status, process.returncode)
+                print(status)
             elif error_text == "MemoryError\n":
                 status = "ME"
-                print(status, process.returncode)
-            else:
-                status = "RE"
-                print(status, process.returncode)
-
-        elif error_size == 0:
+                print(status)
+        elif error_text not in possible_errors:
+            status = "RE"
+            print(status)
+        elif error_text == "NoErrors":
             print("checking")
 
     # def cpp():
@@ -80,9 +77,3 @@ def check(program_name, language):
     #     pass
     else:
         print("no valid language")
-
-
-# вывод ошибки
-def input_error(error):
-    args = 'echo {0} > error'.format(error)
-    subprocess.Popen(args, shell=True, stdout=subprocess.PIPE)
