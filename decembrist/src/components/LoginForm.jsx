@@ -6,10 +6,10 @@ function LoginForm() {
             <div className="login-form">
                 <h2>Hi, I'm Julia.</h2>
                 <div className="form-info" id="form-info">Tell me your username and password.</div>
-                <label htmlFor="username"></label>
-                <input type="text" name="Username" id="username" placeholder="Username"></input>
-                <label htmlFor="password"></label>
-                <input type="password" name="Password" id="password" placeholder="Password" autoComplete="on"></input>
+                <label htmlFor="username"/>
+                <input type="text" name="Username" id="username" placeholder="Username"/>
+                <label htmlFor="password"/>
+                <input type="password" name="Password" id="password" placeholder="Password" autoComplete="on"/>
                 <button className="major-button" type="button" name="Login" value="Login"
                         id="login-button">Login
                 </button>
