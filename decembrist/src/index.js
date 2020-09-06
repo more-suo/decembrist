@@ -1,10 +1,12 @@
 import React from 'react';
 import {render} from 'react-dom';
+import './index.css'
+
 
 function Article() {
     const body = <section>body</section>
     return (
-        <div className="hello" style={{color: 'red'}}>
+        <div>
             <h2>title</h2>
             {body}
             <h3>creation date: {(new Date()).toDateString()}</h3>
