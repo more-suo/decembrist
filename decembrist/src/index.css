@@ -3,6 +3,16 @@
     src: url(fonts/JetBrainsMono/woff2/JetBrainsMono-Regular.woff2) format('woff2');
 }
 
+::-moz-selection { /* Code for Firefox */
+    color: black;
+    background: yellow;
+}
+
+::selection {
+    color: black;
+    background: yellow;
+}
+
 html, body {
     font-family: "JetBrains Mono", serif;
 }
