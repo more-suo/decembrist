@@ -1,5 +1,5 @@
 import React from "react";
-// import './LoginForm.css';
+import './RegistrationForm.css';
 
 function changeToLoginForm() {
     console.log(123)

@@ -11,7 +11,7 @@ function changeToRegistrationForm() {
 
 function LoginForm() {
     return (
-        <form className="box" name="main-form" id="main-form">
+        <div className="box" id="main-form">
             <div className="login-form">
                 <h2>Hi, I'm Julia.</h2>
                 <div className="form-info" id="form-info">Tell me your username and password.</div>
@@ -31,7 +31,7 @@ function LoginForm() {
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     )
 }
 
