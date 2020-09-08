@@ -1,16 +1,5 @@
-.center-container {
-    align-items: center;
-    display: flex;
-    min-height: 100%;
-}
-
-.box {
-    text-align: center;
-    transition: 0.25s;
-}
-
-.box input[type="text"],
-.box input[type="password"] {
+input[type="text"],
+input[type="password"] {
     background: none;
     display: block;
     margin: 1em auto;
@@ -28,14 +17,14 @@
 }
 
 
-.box input[type="text"]:focus,
-.box input[type="password"]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus {
     width: 20em;
     /*border-color: white;*/
     border-color: black;
 }
 
-.box .major-button {
+.major-button {
     /*background: rgba(0, 0, 0, .5);*/
     background: rgba(255, 255, 255, .5);
     display: block;
@@ -54,7 +43,7 @@
     vertical-align: middle;
 }
 
-.box .major-button:hover {
+.major-button:hover {
     /*background: white;*/
     background: black;
     /*color: black;*/
