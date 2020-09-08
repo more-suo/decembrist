@@ -7,7 +7,7 @@ import "./AuthForm.css";
 function AuthForm() {
     return (
         <div className="box">
-            <LoginForm />
+            <ResetForm />
         </div>
     )
 }
