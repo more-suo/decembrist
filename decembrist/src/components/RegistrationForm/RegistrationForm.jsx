@@ -1,10 +1,6 @@
 import React from "react";
 import './RegistrationForm.css';
 
-function changeToLoginForm() {
-    console.log(123)
-}
-
 function RegistrationForm() {
     return (
         <div className="registration-form">
@@ -22,9 +18,9 @@ function RegistrationForm() {
             <button className="major-button" type="button" name="Sign-Up" value="Sign-Up" id="sign-up-button">
                 Sign Up
             </button>
-            <div className="back-to-login">
-                <span id="change-to-login-form" onClick={changeToLoginForm}>We're already acquainted.</span>
-            </div>
+            {/*<div className="back-to-login">*/}
+            {/*    <span id="change-to-login-form" onClick={changeToLoginForm}>We're already acquainted.</span>*/}
+            {/*</div>*/}
         </div>
 
 )

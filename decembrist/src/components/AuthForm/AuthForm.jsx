@@ -4,10 +4,26 @@ import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import ResetForm from "../ResetForm/ResetForm";
 import "./AuthForm.css";
 
+
+function changeToLoginForm() {
+    console.log(123)
+}
+
+function changeToResetForm() {
+    console.log(123)
+}
+
+function changeToRegistrationForm() {
+    console.log(123)
+}
+
 function AuthForm() {
     return (
         <div className="box">
-            <ResetForm />
+            { <ResetForm /> }
+            <div className="back-to-login">
+                <span id="change-to-login-form" onClick={changeToLoginForm}>I remembered my password.</span>
+            </div>
         </div>
     )
 }

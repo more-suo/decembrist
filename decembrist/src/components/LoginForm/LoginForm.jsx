@@ -1,14 +1,6 @@
 import React from "react";
 import './LoginForm.css';
 
-function changeToResetForm() {
-    console.log(123)
-}
-
-function changeToRegistrationForm() {
-    console.log(123)
-}
-
 function LoginForm() {
     return (
         <div className="box" id="main-form">
@@ -23,12 +15,12 @@ function LoginForm() {
                     Login
                 </button>
                 <div className="unusual-actions">
-                    <div className="reset-password">
-                        <span onClick={changeToResetForm} id="change-to-reset-password-form">I forgot my password.</span>
-                    </div>
-                    <div className="registration">
-                        <span onClick={changeToRegistrationForm} id="change-to-registration-form">We're not acquainted.</span>
-                    </div>
+                    {/*<div className="reset-password">*/}
+                    {/*    <span onClick={changeToResetForm} id="change-to-reset-password-form">I forgot my password.</span>*/}
+                    {/*</div>*/}
+                    {/*<div className="registration">*/}
+                    {/*    <span onClick={changeToRegistrationForm} id="change-to-registration-form">We're not acquainted.</span>*/}
+                    {/*</div>*/}
                 </div>
             </div>
         </div>

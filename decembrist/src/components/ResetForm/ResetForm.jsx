@@ -1,9 +1,5 @@
 import React from "react";
 
-function changeToLogin() {
-    console.log(123)
-}
-
 function ResetForm() {
     return (
         <div className="reset-form">
@@ -17,9 +13,6 @@ function ResetForm() {
             <button className="major-button" type="button" name="Reset-password" value="Reset-password"
                     id="reset-password-button">Send
             </button>
-            <div className="back-to-login">
-                <span id="change-to-login-form" onClick={changeToLogin}>I remembered my password.</span>
-            </div>
         </div>
 
     )
