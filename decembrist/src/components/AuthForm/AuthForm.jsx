@@ -4,7 +4,6 @@ import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import ResetForm from "../ResetForm/ResetForm";
 import "./AuthForm.css";
 
-
 function changeToLoginForm() {
     console.log(123)
 }
