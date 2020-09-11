@@ -18,9 +18,6 @@ function RegistrationForm() {
             <button className="major-button" type="button" name="Sign-Up" value="Sign-Up" id="sign-up-button">
                 Sign Up
             </button>
-            {/*<div className="back-to-login">*/}
-            {/*    <span id="change-to-login-form" onClick={changeToLoginForm}>We're already acquainted.</span>*/}
-            {/*</div>*/}
         </div>
 
 )
