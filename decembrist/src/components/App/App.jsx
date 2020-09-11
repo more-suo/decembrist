@@ -1,13 +1,21 @@
-import React from "react";
+import React, {Component} from "react";
 import AuthForm from "../AuthForm/AuthForm";
-import "./App.css"
+import "./App.css";
 
-function App() {
-    return (
-        <div>
-            <AuthForm />
-        </div>
-    )
+class App extends Component {
+    state = {
+        app: "auth"
+    }
+
+    render() {
+        if(this.state.app === "auth"){
+            return (
+                <div>
+                    <AuthForm />
+                </div>
+            )
+        }
+    }
 }
 
 export default App

@@ -10,7 +10,6 @@ class AuthForm extends Component {
         action: "login",
     }
 
-
     changeToForm = (form) => {
         this.setState({
             action: form,
@@ -22,6 +21,7 @@ class AuthForm extends Component {
             <div>
                 This is a form.
             </div>;
+
         if (this.state.action === "login") {
             form =
                  <div>
