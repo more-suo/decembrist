@@ -28,12 +28,12 @@ class AuthForm extends Component {
                      { <LoginForm /> }
                      <div className="unusual-actions">
                          <div className="reset-password">
-                             <span onClick={this.changeToForm.bind("reset")} id="change-to-reset-password-form">
+                             <span onClick={this.changeToForm.bind(this, "reset")} id="change-to-reset-password-form">
                                  I forgot my password.
                              </span>
                          </div>
                          <div className="registration">
-                             <span onClick={this.changeToForm.bind("registration")} id="change-to-registration-form">
+                             <span onClick={this.changeToForm.bind(this, "registration")} id="change-to-registration-form">
                                  We're not acquainted.
                              </span>
                          </div>
@@ -44,7 +44,7 @@ class AuthForm extends Component {
                 <div>
                     { <ResetForm /> }
                     <div className="back-to-login">
-                        <span id="change-to-login-form" onClick={this.changeToForm.bind("login")}>
+                        <span id="change-to-login-form" onClick={this.changeToForm.bind(this, "login")}>
                             I remembered my password.
                         </span>
                     </div>
@@ -54,7 +54,7 @@ class AuthForm extends Component {
                 <div>
                     { <RegistrationForm /> }
                     <div className="back-to-login">
-                        <span id="change-to-login-form" onClick={this.changeToForm.bind("login")}>
+                        <span id="change-to-login-form" onClick={this.changeToForm.bind(this, "login")}>
                             We're already acquainted.
                         </span>
                     </div>
