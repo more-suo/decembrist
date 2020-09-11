@@ -4,35 +4,38 @@ import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import ResetForm from "../ResetForm/ResetForm";
 import "./AuthForm.css";
 
-function changeToLoginForm() {
-    console.log(123)
-}
-
-function changeToResetForm() {
-    console.log(123)
-}
-
-function changeToRegistrationForm() {
-    console.log(123)
-}
 
 class AuthForm extends Component {
     state = {
         action: "login",
     }
 
+
+    changeToForm = (form) => {
+        this.setState({
+            action: form,
+        })
+    }
+
     render() {
-        let form;
+        let form =
+            <div>
+                This is a form.
+            </div>;
         if (this.state.action === "login") {
             form =
                  <div>
                      { <LoginForm /> }
                      <div className="unusual-actions">
                          <div className="reset-password">
-                             <span onClick={changeToResetForm} id="change-to-reset-password-form">I forgot my password.</span>
+                             <span onClick={this.changeToForm.bind("reset")} id="change-to-reset-password-form">
+                                 I forgot my password.
+                             </span>
                          </div>
                          <div className="registration">
-                             <span onClick={changeToRegistrationForm} id="change-to-registration-form">We're not acquainted.</span>
+                             <span onClick={this.changeToForm.bind("registration")} id="change-to-registration-form">
+                                 We're not acquainted.
+                             </span>
                          </div>
                      </div>
                  </div>
@@ -41,7 +44,9 @@ class AuthForm extends Component {
                 <div>
                     { <ResetForm /> }
                     <div className="back-to-login">
-                        <span id="change-to-login-form" onClick={changeToLoginForm}>I remembered my password.</span>
+                        <span id="change-to-login-form" onClick={this.changeToForm.bind("login")}>
+                            I remembered my password.
+                        </span>
                     </div>
                 </div>
         } else if (this.state.action === "registration") {
@@ -49,10 +54,13 @@ class AuthForm extends Component {
                 <div>
                     { <RegistrationForm /> }
                     <div className="back-to-login">
-                        <span id="change-to-login-form" onClick={changeToLoginForm}>We're already acquainted.</span>
+                        <span id="change-to-login-form" onClick={this.changeToForm.bind("login")}>
+                            We're already acquainted.
+                        </span>
                     </div>
                 </div>
         }
+
         return (
             <div className="box">
                 { form }
