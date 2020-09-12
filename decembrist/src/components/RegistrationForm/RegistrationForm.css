@@ -24,7 +24,7 @@ input[type="password"]:focus {
     border-color: black;
 }
 
-.major-button {
+.registration-button {
     /*background: rgba(0, 0, 0, .5);*/
     background: rgba(255, 255, 255, .5);
     display: block;

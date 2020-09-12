@@ -15,7 +15,7 @@ function RegistrationForm() {
             <input type="text" name="reg-E-mail" id="reg-e-mail" placeholder="E-mail" />
             <label htmlFor="reg-password" />
             <input type="password" name="reg-Password" id="reg-password" placeholder="Password" autoComplete="on" />
-            <button className="major-button" type="button" id="sign-up-button">
+            <button className="registration-button" type="button" id="sign-up-button">
                 Sign Up
             </button>
         </div>

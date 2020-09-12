@@ -20,7 +20,7 @@ input[type="password"]:focus {
     border-color: black;
 }
 
-.major-button {
+.login-button {
     background: white;
     display: block;
     margin: 1em auto;
