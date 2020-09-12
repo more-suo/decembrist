@@ -22,20 +22,9 @@ class AuthForm extends Component {
             </div>;
 
         if (this.state.action === "login") {
-            form =
-                 <div>
-                     { <LoginForm setForm={this.setForm} /> }
-                 </div>
+            form = <LoginForm setForm={this.setForm} />
         } else if (this.state.action === "reset") {
-            form =
-                <div>
-                    { <ResetForm /> }
-                    <div className="back-to-login">
-                        <span id="change-to-login-form" onClick={this.setForm.bind(this, "login")}>
-                            I remembered my password.
-                        </span>
-                    </div>
-                </div>
+            form = <ResetForm setForm={this.setForm} />
         } else if (this.state.action === "registration") {
             form =
                 <div>
