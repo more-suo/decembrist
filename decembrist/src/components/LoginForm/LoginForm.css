@@ -36,7 +36,7 @@ input[type="password"]:focus {
     vertical-align: middle;
 }
 
-.major-button:hover {
+.login-button:hover {
     background: black;
     color: white;
     width: 20em;

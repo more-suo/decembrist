@@ -1,4 +1,5 @@
 import React from "react";
+import './ResetForm.css';
 
 function ResetForm() {
     return (
@@ -10,7 +11,7 @@ function ResetForm() {
             </div>
             <label htmlFor="UsernameOrEmail" />
             <input type="text" name="UsernameOrEmail" id="user-key" placeholder="Username or e-mail" />
-            <button className="major-button" type="button" id="reset-password-button">
+            <button className="reset-button" type="button" id="reset-password-button">
                 Send
             </button>
         </div>

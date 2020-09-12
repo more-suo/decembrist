@@ -5,12 +5,9 @@ input[type="password"] {
     margin: 1em auto;
     text-align: center;
     border: 2px solid black;
-    /*border: 2px solid white;*/
-    /*padding: 10px 10px;*/
     width: 21em;
     height: 2.7em;
     outline: none;
-    /*color: white;*/
     color: black;
     border-radius: 24px;
     transition: 0.25s;
@@ -20,20 +17,16 @@ input[type="password"] {
 input[type="text"]:focus,
 input[type="password"]:focus {
     width: 20em;
-    /*border-color: white;*/
     border-color: black;
 }
 
 .registration-button {
-    /*background: rgba(0, 0, 0, .5);*/
     background: rgba(255, 255, 255, .5);
     display: block;
     margin: 1em auto;
     text-align: center;
-    /*border: 2px solid white;*/
     border: 2px solid black;
     outline: none;
-    /*color: rgba(255, 255, 255, .9);*/
     color: rgba(0, 0, 0, .9);
     border-radius: 24px;
     transition: 0.5s;
@@ -43,10 +36,8 @@ input[type="password"]:focus {
     vertical-align: middle;
 }
 
-.major-button:hover {
-    /*background: white;*/
+.registration-button:hover {
     background: black;
-    /*color: black;*/
     color: white;
     width: 20em;
 }

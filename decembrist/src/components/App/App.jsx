@@ -7,6 +7,7 @@ class App extends Component {
         app: "auth"
     }
 
+
     render() {
         if(this.state.app === "auth"){
             return (
