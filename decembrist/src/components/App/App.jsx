@@ -7,12 +7,17 @@ class App extends Component {
         app: "auth"
     }
 
+    setApp = (AppName) => {
+        this.setState({
+            app: AppName
+        })
+    }
 
     render() {
         if(this.state.app === "auth"){
             return (
                 <div>
-                    <AuthForm />
+                    <AuthForm setApp={this.setApp}/>
                 </div>
             )
         }

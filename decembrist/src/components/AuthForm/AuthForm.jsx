@@ -9,7 +9,7 @@ class AuthForm extends Component {
         action: "login",
     }
 
-    changeToForm = (form) => {
+    setForm = (form) => {
         this.setState({
             action: form,
         })
@@ -24,26 +24,14 @@ class AuthForm extends Component {
         if (this.state.action === "login") {
             form =
                  <div>
-                     { <LoginForm /> }
-                     <div className="change-form">
-                         <div className="reset-password">
-                             <span onClick={this.changeToForm.bind(this, "reset")} id="change-to-reset-password-form">
-                                 I forgot my password.
-                             </span>
-                         </div>
-                         <div className="registration">
-                             <span onClick={this.changeToForm.bind(this, "registration")} id="change-to-registration-form">
-                                 We're not acquainted.
-                             </span>
-                         </div>
-                     </div>
+                     { <LoginForm setForm={this.setForm} /> }
                  </div>
         } else if (this.state.action === "reset") {
             form =
                 <div>
                     { <ResetForm /> }
                     <div className="back-to-login">
-                        <span id="change-to-login-form" onClick={this.changeToForm.bind(this, "login")}>
+                        <span id="change-to-login-form" onClick={this.setForm.bind(this, "login")}>
                             I remembered my password.
                         </span>
                     </div>
@@ -53,7 +41,7 @@ class AuthForm extends Component {
                 <div>
                     { <RegistrationForm /> }
                     <div className="back-to-login">
-                        <span id="change-to-login-form" onClick={this.changeToForm.bind(this, "login")}>
+                        <span id="change-to-login-form" onClick={this.setForm.bind(this, "login")}>
                             We're already acquainted.
                         </span>
                     </div>
