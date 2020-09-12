@@ -2,3 +2,12 @@
     text-align: center;
     transition: 0.25s;
 }
+
+.change-form {
+    padding-bottom: .5em;
+    font-size: .9em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: table;
+}

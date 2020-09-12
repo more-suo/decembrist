@@ -26,7 +26,7 @@ class AuthForm extends Component {
             form =
                  <div>
                      { <LoginForm /> }
-                     <div className="unusual-actions">
+                     <div className="change-form">
                          <div className="reset-password">
                              <span onClick={this.changeToForm.bind(this, "reset")} id="change-to-reset-password-form">
                                  I forgot my password.

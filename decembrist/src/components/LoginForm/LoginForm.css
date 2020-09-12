@@ -42,22 +42,9 @@ input[type="password"]:focus {
     width: 20em;
 }
 
-.unusual-actions {
-    padding-bottom: .5em;
-    font-size: .9em;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    display: table;
-}
-
 .reset-password,
 .registration {
     display: table-cell;
-}
-
-.unusual-actions-sep {
-    cursor: context-menu;
 }
 
 .reset-password:hover,
