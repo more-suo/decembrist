@@ -10,8 +10,8 @@ function ResetForm() {
             </div>
             <label htmlFor="UsernameOrEmail" />
             <input type="text" name="UsernameOrEmail" id="user-key" placeholder="Username or e-mail" />
-            <button className="major-button" type="button" name="Reset-password" value="Reset-password"
-                    id="reset-password-button">Send
+            <button className="major-button" type="button" id="reset-password-button">
+                Send
             </button>
         </div>
 

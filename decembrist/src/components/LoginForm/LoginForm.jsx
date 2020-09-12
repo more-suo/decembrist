@@ -11,7 +11,7 @@ function LoginForm() {
                 <input type="text" name="Username" id="username" placeholder="Username"/>
                 <label htmlFor="password"/>
                 <input type="password" name="Password" id="password" placeholder="Password" autoComplete="on"/>
-                <button className="major-button" type="button" name="Login" value="Login" id="login-button">
+                <button className="major-button" type="button" id="login-button">
                     Login
                 </button>
             </div>
