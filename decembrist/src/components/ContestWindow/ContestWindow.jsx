@@ -9,3 +9,5 @@ class ContestWindow extends Component {
         )
     }
 }
+
+export default ContestWindow
