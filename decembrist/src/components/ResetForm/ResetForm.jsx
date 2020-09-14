@@ -16,9 +16,9 @@ class ResetForm extends Component {
                     Send
                 </button>
                 <div className="back-to-login">
-                <span id="change-to-login-form" onClick={this.props.setForm.bind(this, "login")}>
-                    I remembered my password.
-                </span>
+                    <span id="change-to-login-form" onClick={this.props.setForm.bind(this, "login")}>
+                        I remembered my password.
+                    </span>
                 </div>
             </div>
         )
