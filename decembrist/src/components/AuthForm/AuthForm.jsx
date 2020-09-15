@@ -18,11 +18,11 @@ class AuthForm extends Component {
     render() {
         let form = "This is a form."
         if (this.state.action === "login") {
-            form = <LoginForm setForm={this.setForm} />
+            form = <LoginForm setForm={this.setForm} setApp={this.props.setApp}/>
         } else if (this.state.action === "reset") {
-            form = <ResetForm setForm={this.setForm} />
+            form = <ResetForm setForm={this.setForm} setApp={this.props.setApp}/>
         } else if (this.state.action === "registration") {
-            form = <RegistrationForm setForm={this.setForm} />
+            form = <RegistrationForm setForm={this.setForm} setApp={this.props.setApp}/>
         }
 
         return (
