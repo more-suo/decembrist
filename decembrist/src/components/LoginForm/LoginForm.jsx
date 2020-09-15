@@ -5,6 +5,7 @@ class LoginForm extends Component {
     state = {
         username: "",
         password: "",
+        info_message: "Tell me your username and password."
     }
 
     setUsername = (event) => {
@@ -20,14 +21,23 @@ class LoginForm extends Component {
     }
 
     handleLogin = () => {
-        this.props.setApp("contest")
+        if (this.state.username === ""){
+            this.setState({
+                info_message: "I need your username, tell me!"
+            })
+        } else if (this.state.password === "") {
+            this.setState({
+                info_message: "I need your password too!"
+            })
+        }
+        // this.props.setApp("contest")
     }
 
     render() {
         return (
             <div className="login-form">
                 <h2>Hi, I'm Julia.</h2>
-                <div className="form-info" id="form-info">Tell me your username and password.</div>
+                <div className="form-info" id="form-info">{this.state.info_message}</div>
                 <label htmlFor="username"/>
                 <input type="text"
                        placeholder="Username"
