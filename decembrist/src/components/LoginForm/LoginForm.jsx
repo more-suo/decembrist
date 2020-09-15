@@ -2,6 +2,9 @@ import React, {Component} from "react";
 import './LoginForm.css';
 
 class LoginForm extends Component {
+    handleLogin = () => {
+        this.props.setApp("contest")
+    }
 
     render() {
         return (
@@ -12,7 +15,7 @@ class LoginForm extends Component {
                 <input type="text" name="Username" id="username" placeholder="Username"/>
                 <label htmlFor="password"/>
                 <input type="password" name="Password" id="password" placeholder="Password" autoComplete="on"/>
-                <button className="login-button" type="button" id="login-button">
+                <button className="login-button" type="button" id="login-button" onClick={this.handleLogin}>
                     Login
                 </button>
                 <div className="change-form">
