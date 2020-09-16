@@ -25,12 +25,14 @@ class LoginForm extends Component {
             this.setState({
                 info_message: "I need your username, tell me!"
             })
+            return false;
         } else if (this.state.password === "") {
             this.setState({
                 info_message: "I need your password too!"
             })
+            return false;
         }
-        // this.props.setApp("contest")
+        this.props.setApp("contest")
     }
 
     render() {
