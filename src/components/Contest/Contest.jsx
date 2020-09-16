@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-class ContestWindow extends Component {
+class Contest extends Component {
     render() {
         return (
             <div>
@@ -10,4 +10,4 @@ class ContestWindow extends Component {
     }
 }
 
-export default ContestWindow
+export default Contest

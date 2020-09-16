@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import AuthForm from "../AuthForm/AuthForm";
-import ContestWindow from "../ContestWindow/ContestWindow";
+import Contest from "../Contest/Contest";
 import "./App.css";
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
         if (this.state.app === "auth"){
             window = <AuthForm setApp={this.setApp}/>
         } else if (this.state.app === "contest"){
-            window = <ContestWindow setApp={this.setApp}/>
+            window = <Contest setApp={this.setApp}/>
         }
         return (
             <div>
