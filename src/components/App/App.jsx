@@ -6,7 +6,8 @@ import "./App.css";
 
 class App extends Component {
     state = {
-        app: "contest"
+        app: "contest",
+        sidebarIsToggled: true,
     }
 
     setApp = (AppName) => {
@@ -16,20 +17,21 @@ class App extends Component {
     }
 
     render() {
-        let window;
+        let window = [];
         if (this.state.app === "auth"){
-            window = <AuthForm setApp={this.setApp}/>
+            window.push(<AuthForm setApp={this.setApp}/>)
         } else if (this.state.app === "contest"){
-            window = <Contest setApp={this.setApp}/>
+            window.push(<Contest setApp={this.setApp}/>)
         } else {
-            window =
+            window.push(
                 <h1>
                     What are you trying to do? Error 404! :|
                 </h1>
+            )
         }
         return (
             <div>
-                <Sidebar/>
+                <Sidebar isToggled={this.state.sidebarIsToggled}/>
                 { window }
             </div>
         )
