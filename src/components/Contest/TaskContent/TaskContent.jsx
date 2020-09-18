@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import LimitsTable from "./LimitsTable/LimitsTable";
+import SamplesTable from "../SamplesTable/SamplesTable";
 
 class TaskContent extends Component {
     state = {
@@ -19,35 +20,10 @@ class TaskContent extends Component {
         return (
             <div>
                 <h1 className="title">{this.state.title}</h1>
-
                 <LimitsTable tl={this.state.tl} ml={this.state.ml}/>
-
-                <div className="content">
-                    {this.state.content}
-                </div>
-
-                <table className="io-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Input</th>
-                            <th scope="col"> Output</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>123</code></td>
-                            <td><code>321</code></td>
-                        </tr>
-                        <tr>
-                            <td><code>123</code></td>
-                            <td><code>321</code></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-
-
-                                </div>
+                <div className="content">{this.state.content}</div>
+                <SamplesTable samples={this.state.samples}/>
+            </div>
         )
     }
 }
