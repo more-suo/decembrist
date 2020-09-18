@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import AuthForm from "../AuthForm/AuthForm";
 import Contest from "../Contest/Contest";
+import Sidebar from "../Sidebar/Sidebar";
 import "./App.css";
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
         }
         return (
             <div>
+                <Sidebar/>
                 { window }
             </div>
         )
