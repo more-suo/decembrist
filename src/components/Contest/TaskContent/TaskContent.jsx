@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import LimitsTable from "./LimitsTable/LimitsTable";
-import SamplesTable from "../SamplesTable/SamplesTable";
+import SamplesTable from "./SamplesTable/SamplesTable";
 
 class TaskContent extends Component {
     state = {
         id: 0,
         title: "Lorem Ipsum",
-        content: "Something 'bout the task",
+        content: "Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task.",
         contest: 0,
         tl: 0,
         ml: 0,

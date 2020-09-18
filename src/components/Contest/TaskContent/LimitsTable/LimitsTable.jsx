@@ -1,9 +1,10 @@
 import React, {Component} from "react";
+import "./LimitsTable.css";
 
 class LimitsTable extends Component {
     render() {
         return(
-            <table className="limits-table">
+            <table>
                 <tbody>
                 <tr>
                     <td className="task-parameter">TL {this.props.tl} </td>

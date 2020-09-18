@@ -7,13 +7,13 @@ class SamplesTable extends Component {
         let samples_rows = []
         for (let i = 0; i < samples[0].length; i++){
             samples_rows.push(
-                <tr>
+                <tr key={i}>
                     <td><code>{samples[0][i]}</code></td>
                     <td><code>{samples[1][i]}</code></td>
                 </tr>
             )
         }
-        console.log(samples, samples_rows)
+        
         return(
             <table className="samples-table">
                 <thead>
