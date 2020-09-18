@@ -7,8 +7,8 @@ class LimitsTable extends Component {
             <table>
                 <tbody>
                 <tr>
-                    <td className="task-parameter">TL {this.props.tl} </td>
-                    <td className="task-parameter">ML {this.props.ml} </td>
+                    <td className="task-parameter">TL {this.props.tl}s </td>
+                    <td className="task-parameter">ML {this.props.ml}MB </td>
                 </tr>
                 </tbody>
             </table>

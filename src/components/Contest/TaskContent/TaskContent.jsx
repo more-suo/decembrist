@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import LimitsTable from "./LimitsTable/LimitsTable";
 import SamplesTable from "./SamplesTable/SamplesTable";
+import "./TaskContent.css";
 
 class TaskContent extends Component {
     state = {
