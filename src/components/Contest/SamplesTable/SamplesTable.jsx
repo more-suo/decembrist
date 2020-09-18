@@ -2,6 +2,17 @@ import React, {Component} from "react";
 
 class SamplesTable extends Component {
     render() {
+        const samples = this.props.samples
+        let samples_rows = []
+        for (let i = 0; i < samples[0].length; i++){
+            samples_rows.push(
+                <tr>
+                    <td><code>{samples[0][i]}</code></td>
+                    <td><code>{samples[1][i]}</code></td>
+                </tr>
+            )
+        }
+        console.log(samples, samples_rows)
         return(
             <table className="samples-table">
                 <thead>
@@ -11,14 +22,7 @@ class SamplesTable extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><code>123</code></td>
-                        <td><code>321</code></td>
-                    </tr>
-                    <tr>
-                        <td><code>123</code></td>
-                        <td><code>321</code></td>
-                    </tr>
+                    {samples_rows}
                 </tbody>
             </table>
         )

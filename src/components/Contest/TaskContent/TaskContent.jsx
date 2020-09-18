@@ -11,8 +11,8 @@ class TaskContent extends Component {
         tl: 0,
         ml: 0,
         samples: [
-            "123",
-            "123"
+            ["123", "Metallica"],
+            ["123", "Alcohollica"]
         ]
     }
 
