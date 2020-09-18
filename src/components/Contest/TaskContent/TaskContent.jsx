@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import LimitsTable from "./LimitsTable/LimitsTable";
 
 class TaskContent extends Component {
     state = {
@@ -19,14 +20,7 @@ class TaskContent extends Component {
             <div>
                 <h1 className="title">{this.state.title}</h1>
 
-                <table className="limits-table">
-                    <tbody>
-                        <tr>
-                            <td className="task-parameter">TL {this.state.tl} </td>
-                            <td className="task-parameter">ML {this.state.ml} </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <LimitsTable tl={this.state.tl} ml={this.state.ml}/>
 
                 <div className="content">
                     {this.state.content}
