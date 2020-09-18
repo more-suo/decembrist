@@ -5,7 +5,7 @@ import "./App.css";
 
 class App extends Component {
     state = {
-        app: "auth"
+        app: "contest"
     }
 
     setApp = (AppName) => {
@@ -20,6 +20,11 @@ class App extends Component {
             window = <AuthForm setApp={this.setApp}/>
         } else if (this.state.app === "contest"){
             window = <Contest setApp={this.setApp}/>
+        } else {
+            window =
+                <h1>
+                    What are you trying to do? Error 404! :|
+                </h1>
         }
         return (
             <div>

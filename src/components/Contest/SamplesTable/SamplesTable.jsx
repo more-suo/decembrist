@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./SamplesTable.css";
 
 class SamplesTable extends Component {
     render() {
