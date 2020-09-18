@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import LoginForm from "../LoginForm/LoginForm";
-import RegistrationForm from "../RegistrationForm/RegistrationForm";
-import ResetForm from "../ResetForm/ResetForm";
+import LoginForm from "./LoginForm/LoginForm";
+import RegistrationForm from "./RegistrationForm/RegistrationForm";
+import ResetForm from "./ResetForm/ResetForm";
 import "./AuthForm.css";
 
 class AuthForm extends Component {
