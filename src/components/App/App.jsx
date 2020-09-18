@@ -16,6 +16,12 @@ class App extends Component {
         })
     }
 
+    toggleSidebar = () => {
+        this.setState({
+            sidebarIsToggled: !this.state.sidebarIsToggled,
+        })
+    }
+
     render() {
         let window = [];
         if (this.state.app === "auth"){
@@ -31,6 +37,9 @@ class App extends Component {
         }
         return (
             <div>
+                <div onClick={this.toggleSidebar}>
+                    Toggle Sidebar
+                </div>
                 <Sidebar isToggled={this.state.sidebarIsToggled}/>
                 { window }
             </div>

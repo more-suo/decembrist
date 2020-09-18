@@ -3,8 +3,9 @@ import "./Sidebar.css";
 
 class Sidebar extends Component {
     render() {
+        const sidebar_status = this.props.isToggled ? "toggled" : "active";
         return (
-            <div>
+            <div className={`sidebar ${sidebar_status}`}>
                 Sidebar
             </div>
         )

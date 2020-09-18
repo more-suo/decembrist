@@ -1,0 +1,19 @@
+.sidebar {
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    padding-top: 10px;
+    z-index: 999;
+    background: white;
+    color: black;
+    transition: all .3s;
+    text-align: center;
+}
+
+.sidebar.toggled {
+    left: -305px !important;
+}
+
+.sidebar.active {
+    left: 0 !important;
+}
