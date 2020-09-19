@@ -1,5 +1,5 @@
-#App {
-    /*width: 80vw;*/
+.center-x {
+    width: 80vw;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
