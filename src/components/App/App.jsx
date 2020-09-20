@@ -37,11 +37,14 @@ class App extends Component {
         }
         return (
             <div>
-                <div onClick={this.toggleSidebar}>
-                    Toggle Sidebar
-                </div>
                 <Sidebar isToggled={this.state.sidebarIsToggled}/>
-                { window }
+
+                <div className="main-window">
+                    <div onClick={this.toggleSidebar}>
+                        Toggle Sidebar
+                    </div>
+                    { window }
+                </div>
             </div>
         )
     }
