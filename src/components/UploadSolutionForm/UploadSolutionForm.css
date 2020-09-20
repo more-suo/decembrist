@@ -11,7 +11,7 @@
     background-clip: padding-box;
     border: 2px solid black;
     border-radius: 24px;
-    transition: color .2s ease-in-out, background-color .2s ease-in-out, border-width .0s ease-in-out;
+    transition: color .3s ease-in-out, background-color .3s ease-in-out, border-width .0s ease-in-out;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance:none;
@@ -25,29 +25,31 @@
 }
 
 .upload-solution {
-    width: 1px;
-    height: 1px;
     opacity: 0;
     overflow: hidden;
-    position: absolute;
-    margin: 0 auto;
+    position: fixed;
     z-index: -1;
 }
 
-.upload-solution + label {
+.upload-solution-label {
+    background: rgba(255, 255, 255, .5);
+    display: block;
+    font-size: 1em;
+    /* line-height: 1.5; */
+    text-align: center;
     border: 2px solid black;
-    border-radius: 24px;
+    padding: .375rem .75rem;
     margin: .5em auto;
-    color: black;
-    display: inline-block;
-    width: 16.2em
+    width: 12em;
+    color: rgba(0, 0, 0, .9);
+    border-radius: 24px;
+    transition: .3s;
+    cursor: pointer;
 }
 
-.upload-solution:hover + label,
-.upload-solution + label:hover {
+.upload-solution-label:hover {
     color: white;
-    background-color: black;
-    transition: color .2s ease-in-out, background-color .2s ease-in-out;
+    background: black;
 }
 
 .upload-solution-form {
@@ -65,7 +67,7 @@
     width: 16.4em;
     color: rgba(0, 0, 0, .9);
     border-radius: 24px;
-    transition: 0.5s;
+    transition: .3s;
     cursor: pointer;
     vertical-align: middle;
     outline: 0;

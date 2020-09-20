@@ -7,7 +7,7 @@ class Sidebar extends Component {
         const sidebar_status = this.props.isToggled ? "toggled" : "active";
         return (
             <div className={`sidebar ${sidebar_status}`}>
-                Sidebar
+                Task 1
                 <UploadSolutionForm />
             </div>
         )

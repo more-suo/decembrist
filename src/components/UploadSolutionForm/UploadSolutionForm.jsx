@@ -19,18 +19,18 @@ class UploadSolutionForm extends Component {
                             <option value="python3">Python 3</option>
                         </select>
 
-                        <input className="upload-solution" type="file" id="upload-solution-ID" name="file"/>
-                        <label className="btn upload-solution-label" htmlFor="upload-solution-ID">
-                            Select Program
+                        <label className="upload-solution-label">
+                            <input className="upload-solution" type="file" id="upload-solution-ID" name="file"/>
+                            <span>Select Program</span>
                         </label>
 
-                                <button className="send-solution-button"
-                                        type="submit"
-                                        name="send-solution-ID"
-                                        value="Send_Solution"
-                                        id="send-solution-ID">
-                                    Send Solution
-                                </button>
+                        <button className="send-solution-button"
+                                type="submit"
+                                name="send-solution-ID"
+                                value="Send_Solution"
+                                id="send-solution-ID">
+                            Send Solution
+                        </button>
                     </form>
                 </div>
             </div>
