@@ -25,9 +25,9 @@ class App extends Component {
     render() {
         let window = [];
         if (this.state.app === "auth"){
-            window.push(<AuthForm setApp={this.setApp}/>)
+            window.push(<AuthForm sidebarIsToggled={this.state.sidebarIsToggled} setApp={this.setApp}/>)
         } else if (this.state.app === "contest"){
-            window.push(<Contest setApp={this.setApp}/>)
+            window.push(<Contest sidebarIsToggled={this.state.sidebarIsToggled} setApp={this.setApp}/>)
         } else {
             window.push(
                 <h1>
@@ -35,6 +35,7 @@ class App extends Component {
                 </h1>
             )
         }
+
         return (
             <div>
                 <Sidebar isToggled={this.state.sidebarIsToggled}/>
