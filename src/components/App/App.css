@@ -4,4 +4,10 @@
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
+    transition: all .3s;
+}
+
+.main-window.open-sidebar {
+    left: calc(50% + 50px);
+    width: calc(80vw - 300px);
 }

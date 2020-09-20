@@ -4,7 +4,7 @@ import TaskContent from "./TaskContent/TaskContent";
 class Contest extends Component {
     render() {
         return (
-            <TaskContent/>
+            <TaskContent />
         )
     }
 }
