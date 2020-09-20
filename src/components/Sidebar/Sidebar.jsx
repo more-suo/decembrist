@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import UploadSolutionForm from "../UploadSolutionForm/UploadSolutionForm";
 import "./Sidebar.css";
 
 class Sidebar extends Component {
@@ -7,6 +8,7 @@ class Sidebar extends Component {
         return (
             <div className={`sidebar ${sidebar_status}`}>
                 Sidebar
+                <UploadSolutionForm />
             </div>
         )
     }
