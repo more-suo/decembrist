@@ -38,7 +38,7 @@ class App extends Component {
                 <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
                     <div className="main-window">
                         <div onClick={this.toggleSidebar}>
-                            Toggle Sidebar
+                            {this.state.sidebarIsToggled ? "> Open" : "< Toggle"} Sidebar
                         </div>
                         { window }
                     </div>
