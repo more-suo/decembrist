@@ -20,10 +20,10 @@ class UploadSolutionForm extends Component {
                         </select>
 
                         <input className="upload-solution" type="file" id="upload-solution-ID" name="file"/>
-                            <input name="task" value="1" type="hidden"/>
-                                <label className="btn upload-solution-label" htmlFor="upload-solution-ID">
-                                    Select Program
-                                </label>
+                        <label className="btn upload-solution-label" htmlFor="upload-solution-ID">
+                            Select Program
+                        </label>
+
                                 <button className="send-solution-button"
                                         type="submit"
                                         name="send-solution-ID"
