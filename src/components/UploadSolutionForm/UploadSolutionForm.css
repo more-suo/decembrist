@@ -1,8 +1,10 @@
 .select-language {
+    font-family: "JetBrains Mono", serif;
+    font-size: .825em;
     display: block;
     padding: .375rem .75rem;
     margin: .5em auto;
-    width: 16.2em;
+    width: 16.5em;
     text-align-last: center;
     text-align: center;
     line-height: 1.5;
@@ -11,7 +13,10 @@
     background-clip: padding-box;
     border: 2px solid black;
     border-radius: 24px;
-    transition: color .3s ease-in-out, background-color .3s ease-in-out, border-width .0s ease-in-out;
+    transition: color .3s ease-in-out,
+                background-color .3s ease-in-out,
+                border-width .0s ease-in-out,
+                padding .0s ease-in-out;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance:none;
@@ -32,16 +37,15 @@
 }
 
 .upload-solution-label {
-    background: rgba(255, 255, 255, .5);
     display: block;
-    font-size: 1em;
-    /* line-height: 1.5; */
+    font-size: .825em;
+    line-height: 1.5;
     text-align: center;
     border: 2px solid black;
     padding: .375rem .75rem;
     margin: .5em auto;
-    width: 12em;
-    color: rgba(0, 0, 0, .9);
+    width: 14.6em;
+    color: black;
     border-radius: 24px;
     transition: .3s;
     cursor: pointer;
@@ -57,7 +61,8 @@
 }
 
 .send-solution-button {
-    background: rgba(255, 255, 255, .5);
+    font-family: "JetBrains Mono", serif;
+    background: white;
     display: block;
     line-height: 1.5;
     text-align: center;
@@ -65,7 +70,7 @@
     padding: .375rem .75rem;
     margin: .5em auto;
     width: 16.4em;
-    color: rgba(0, 0, 0, .9);
+    color: black;
     border-radius: 24px;
     transition: .3s;
     cursor: pointer;
