@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./UploadSolutionForm.css";
 
 class UploadSolutionForm extends Component {
     render() {
@@ -27,7 +28,9 @@ class UploadSolutionForm extends Component {
                                         type="submit"
                                         name="send-solution-ID"
                                         value="Send_Solution"
-                                        id="send-solution-ID"/>
+                                        id="send-solution-ID">
+                                    Send Solution
+                                </button>
                     </form>
                 </div>
             </div>
