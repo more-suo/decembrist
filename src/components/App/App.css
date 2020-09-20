@@ -1,13 +1,21 @@
-.main-window {
-    width: 80vw;
+.window-box {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
+    width: 100%;
     transition: all .3s;
+    left: 0;
 }
 
-.main-window.open-sidebar {
-    left: calc(50% + 50px);
-    width: calc(80vw - 300px);
+.main-window {
+    width: 80%;
+    margin: auto;
+    transition: all .3s;
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
+}
+
+.window-box.open-sidebar {
+    left: 300px;
+    width: calc(100% - 300px);
+    transition: all .3s;
 }

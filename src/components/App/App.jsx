@@ -29,22 +29,19 @@ class App extends Component {
         } else if (this.state.app === "contest"){
             window.push(<Contest setApp={this.setApp}/>)
         } else {
-            window.push(
-                <h1>
-                    What are you trying to do? Error 404! :|
-                </h1>
-            )
+            window.push(<h1>What are you trying to do? Error 404! :|</h1>)
         }
 
         return (
             <div>
                 <Sidebar isToggled={this.state.sidebarIsToggled}/>
-
-                <div className={`main-window ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
-                    <div onClick={this.toggleSidebar}>
-                        Toggle Sidebar
+                <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
+                    <div className="main-window">
+                        <div onClick={this.toggleSidebar}>
+                            Toggle Sidebar
+                        </div>
+                        { window }
                     </div>
-                    { window }
                 </div>
             </div>
         )
