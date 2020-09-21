@@ -7,8 +7,14 @@ class UploadSolutionForm extends Component {
         file_value: undefined,
     }
 
+    handle_language_select = (e) => {
+        this.setState({
+            lang_value: e.target.value,
+        })
+    }
+
     file_input = React.createRef();
-    handle_file_input(){
+    handle_file_input = () => {
         this.setState({
             file_value: this.file_input.current.files[0]
         })
@@ -20,7 +26,7 @@ class UploadSolutionForm extends Component {
             <div>
                 <div className="send-solution-forms">
                     <form className="upload-solution-form">
-                        <select className="select-language" id="select-language-ID" name="language">
+                        <select className="select-language" value={this.state.lang_value} onChange={this.handle_language_select}>
                             <option value="" disabled selected hidden>Select Language</option>
                             <option value="c">C</option>
                             <option value="cpp11">C++</option>
