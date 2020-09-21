@@ -2,6 +2,18 @@ import React, {Component} from "react";
 import "./UploadSolutionForm.css";
 
 class UploadSolutionForm extends Component {
+    state = {
+        lang_value: "none",
+        file_value: null,
+    }
+
+    file_input = React.createRef();
+    handle_file_input(event){
+        this.setState({
+            file_value: this.file_input.current.files[0]
+        })
+    }
+
     render() {
         return (
             <div>
@@ -20,8 +32,12 @@ class UploadSolutionForm extends Component {
                         </select>
 
                         <label className="upload-solution-label">
-                            <input className="upload-solution" type="file" id="upload-solution-ID" name="file"/>
-                            <span>Select Program</span>
+                            <input className="upload-solution"
+                                   type="file"
+                                   id="upload-solution-ID"
+                                   ref={this.file_input}
+                                   onChange={(e) => this.handle_file_input(e)}/>
+                            <span>{this.state.file_value === null? "Choose File" : this.state.file_value.name}</span>
                         </label>
 
                         <button className="send-solution-button"
