@@ -29,6 +29,11 @@
     padding: 0.5rem 1.75rem;
 }
 
+.select-language option {
+    color: black;
+    background-color: white;
+}
+
 .upload-solution {
     opacity: 0;
     overflow: hidden;
