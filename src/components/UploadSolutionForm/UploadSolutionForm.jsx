@@ -27,7 +27,7 @@ class UploadSolutionForm extends Component {
                 <div className="send-solution-forms">
                     <form className="upload-solution-form">
                         <select className="select-language" value={this.state.lang_value} onChange={this.handle_language_select}>
-                            <option value="" disabled selected hidden>Select Language</option>
+                            <option defaultValue={"DEFAULT"} hidden>Select Language</option>
                             <option value="c">C</option>
                             <option value="cpp11">C++</option>
                             <option value="java">Java</option>

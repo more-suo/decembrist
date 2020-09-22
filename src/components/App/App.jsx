@@ -16,10 +16,19 @@ class App extends Component {
         })
     }
 
-    toggleSidebar = () => {
+    toggleSidebar = (bool=null) => {
         this.setState({
             sidebarIsToggled: !this.state.sidebarIsToggled,
         })
+    }
+
+    handleKeyPress = (event) => {
+        console.log(event.keyCode)
+        if(event.keyCode === 39){
+            this.setState({
+                sidebarIsToggled: false,
+            })
+        }
     }
 
     render() {
@@ -33,7 +42,7 @@ class App extends Component {
         }
 
         return (
-            <div>
+            <div tabIndex="0" onKeyPress={(event => this.handleKeyPress(event))}>
                 <Sidebar isToggled={this.state.sidebarIsToggled}/>
                 <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
                     <div className="main-window">
