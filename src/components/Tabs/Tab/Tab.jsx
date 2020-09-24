@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-class TabContent extends Component {
+class Tab extends Component {
     state = {
 
     }
@@ -12,4 +12,4 @@ class TabContent extends Component {
     }
 }
 
-export default TabContent
+export default Tab
