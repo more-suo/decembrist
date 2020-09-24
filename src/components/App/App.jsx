@@ -23,10 +23,14 @@ class App extends Component {
     }
 
     handleKeyPress = (event) => {
-        console.log(event.keyCode)
-        if(event.keyCode === 39){
+        console.log(event.key + " pressed")
+        if(event.key === "ArrowRight"){
             this.setState({
                 sidebarIsToggled: false,
+            })
+        } else if(event.key === "ArrowLeft"){
+            this.setState({
+                sidebarIsToggled: true,
             })
         }
     }
@@ -42,7 +46,7 @@ class App extends Component {
         }
 
         return (
-            <div tabIndex="0" onKeyPress={(event => this.handleKeyPress(event))}>
+            <div tabIndex="0" onKeyDown={(event => this.handleKeyPress(event))}>
                 <Sidebar isToggled={this.state.sidebarIsToggled}/>
                 <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
                     <div className="main-window">
