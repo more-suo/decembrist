@@ -16,7 +16,7 @@ class App extends Component {
         })
     }
 
-    toggleSidebar = (bool=null) => {
+    toggleSidebar = () => {
         this.setState({
             sidebarIsToggled: !this.state.sidebarIsToggled,
         })
