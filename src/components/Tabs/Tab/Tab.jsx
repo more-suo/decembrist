@@ -7,7 +7,9 @@ class Tab extends Component {
 
     render() {
         return(
-            <div>This is the tab content</div>
+            <div className="Tab">
+                This is a tab
+            </div>
         )
     }
 }

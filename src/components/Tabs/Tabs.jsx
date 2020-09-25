@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Tab from "./Tab/Tab";
 
 class Tabs extends Component {
     state = {
@@ -7,7 +8,7 @@ class Tabs extends Component {
 
     render() {
         return(
-            <div>Task1</div>
+            <Tab/>
         )
     }
 }
