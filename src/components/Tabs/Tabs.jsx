@@ -8,7 +8,10 @@ class Tabs extends Component {
 
     render() {
         return(
-            <Tab/>
+            <div className="Tabs">
+                <Tab active={true}/>
+                <Tab/>
+            </div>
         )
     }
 }

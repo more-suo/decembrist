@@ -9,6 +9,19 @@
                 color .2s;
 }
 
+.Tab.active {
+    width: 12em;
+    border: black 2px solid;
+    margin: auto;
+    border-radius: 0.45em;
+    padding: .45em 1em .45em;
+    font-size: .9em;
+    color: white;
+    background-color: black;
+    transition: background-color .2s,
+    color .2s;
+}
+
 .Tab:hover {
     width: 12em;
     border: black 2px solid;
