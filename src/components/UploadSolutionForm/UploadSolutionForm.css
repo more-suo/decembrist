@@ -1,3 +1,9 @@
+.UploadSolutionForm {
+    bottom: 0;
+    position: absolute;
+    margin: 2em;
+}
+
 .select-language {
     font-family: "JetBrains Mono", serif;
     font-size: .825em;

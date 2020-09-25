@@ -23,7 +23,7 @@ class UploadSolutionForm extends Component {
     render() {
         const file_input_text = this.state.file_value === undefined ? "Select file" : this.state.file_value.name;
         return (
-            <div>
+            <div className="UploadSolutionForm">
                 <div className="send-solution-forms">
                     <form className="upload-solution-form">
                         <select className="select-language" value={this.state.lang_value} onChange={this.handle_language_select}>
