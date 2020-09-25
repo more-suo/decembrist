@@ -1,0 +1,11 @@
+.Tab {
+    width: 12em;
+    border: black 2px solid;
+    margin: auto;
+    border-radius: 0.45em;
+    /* padding-top: .45em; */
+    /* padding-bottom: .45em; */
+    /* padding-left: 1em; */
+    padding: .45em 1em .45em;
+    font-size: .9em;
+}

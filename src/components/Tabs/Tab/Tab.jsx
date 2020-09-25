@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./Tab.css";
 
 class Tab extends Component {
     state = {
