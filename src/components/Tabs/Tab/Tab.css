@@ -4,8 +4,8 @@
     border-radius: 0.45em;
     padding: calc(.45em + 2px) 1em calc(.45em + 2px);
     font-size: .9em;
-    transition: background-color .2s,
-                color .2s;
+    transition: background-color .3s,
+                color .3s;
 }
 
 .Tab.active {
@@ -13,8 +13,8 @@
     padding: .45em 1em .45em;
     color: white;
     background-color: black;
-    transition: background-color .2s,
-                color .2s;
+    transition: background-color .3s,
+                color .3s;
 }
 
 .Tab:hover {
@@ -22,6 +22,6 @@
     padding: .45em 1em .45em;
     color: white;
     background-color: black;
-    transition: background-color .2s,
-                color .2s;
+    transition: background-color .3s,
+                color .3s;
 }
