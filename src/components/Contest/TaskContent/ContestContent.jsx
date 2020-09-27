@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import TabContent from "../../Tabs/TabContent/TabContent";
 import "./ContestContent.css";
-import LimitsTable from "./LimitsTable/LimitsTable";
 
 class ContestContent extends Component {
     state = {
@@ -29,7 +28,6 @@ class ContestContent extends Component {
             ["123", "Alcohollica"]
         ]
     }
-
     task1 = {
         id: 1,
         title: "Metallica And Bread",
@@ -42,19 +40,24 @@ class ContestContent extends Component {
             ["123", "Alcohollica"]
         ]
     }
-
     tasks = [this.task0, this.task1]
+    tabs = []
 
     render() {
+        this.tasks.forEach(element => {
+            this.tabs.push(
+                <TabContent title={element.title}
+                            tl={element.tl}
+                            ml={element.ml}
+                            content={element.content}
+                            samples={element.samples}
+                />
+            )
+        });
+
         return(
             <div className="ContestContent">
-                <TabContent title={this.state.title}
-                            tl={this.state.tl}
-                            ml={this.state.ml}
-                            content={this.state.content}
-                            samples={this.state.samples}
-                />
-
+                { this.tabs[0] }
             </div>
         )
     }
