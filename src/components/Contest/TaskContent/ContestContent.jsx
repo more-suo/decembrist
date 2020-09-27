@@ -4,16 +4,7 @@ import "./ContestContent.css";
 
 class ContestContent extends Component {
     state = {
-        id: 0,
-        title: "Lorem Ipsum",
-        content: "Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task. Something 'bout the task.",
-        contest: 0,
-        tl: 0,
-        ml: 0,
-        samples: [
-            ["123", "Metallica"],
-            ["123", "Alcohollica"]
-        ]
+        activeTab: 0,
     }
 
     task0 = {
@@ -57,7 +48,7 @@ class ContestContent extends Component {
 
         return(
             <div className="ContestContent">
-                { this.tabs[0] }
+                { this.tabs[this.state.activeTab] }
             </div>
         )
     }
