@@ -1,10 +1,10 @@
 import React, {Component} from "react";
-import TaskContent from "./TaskContent/TaskContent";
+import ContestContent from "./TaskContent/ContestContent";
 
 class Contest extends Component {
     render() {
         return (
-            <TaskContent />
+            <ContestContent />
         )
     }
 }
