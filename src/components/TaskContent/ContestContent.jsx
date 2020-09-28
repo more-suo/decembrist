@@ -54,12 +54,12 @@ class ContestContent extends Component {
         ]
     }
     tasks = [this.task0, this.task1]
-    tabs = []
-    titles = []
 
     render() {
+        let tabs = []
+        let titles = []
         this.tasks.forEach(element => {
-            this.tabs.push(
+            tabs.push(
                 <TabContent title={element.title}
                             tl={element.tl}
                             ml={element.ml}
@@ -67,13 +67,12 @@ class ContestContent extends Component {
                             samples={element.samples}
                 />
             )
-
-            this.titles.push(element.title)
+            titles.push(element.title)
         });
 
         return(
             <div>
-                <Sidebar isToggled={this.state.sidebarIsToggled} tabTitles={this.titles}/>
+                <Sidebar isToggled={this.state.sidebarIsToggled} tabTitles={titles}/>
 
                 <div onClick={this.toggleSidebar}>
                     {this.state.sidebarIsToggled ? "> Open" : "< Toggle"} Sidebar
@@ -83,7 +82,7 @@ class ContestContent extends Component {
                     <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
                         <div className="main-window">
                             <div className="ContestContent">
-                                { this.tabs[this.state.activeTab] }
+                                { tabs[this.state.activeTab] }
                             </div>
                         </div>
                     </div>

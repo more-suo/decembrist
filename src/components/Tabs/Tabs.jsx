@@ -3,17 +3,16 @@ import Tab from "../Tab/Tab";
 
 
 class Tabs extends Component {
-    tabs = []
 
     render() {
-
+        let tabs = []
         this.props.tabsTitle.forEach(element => {
-            this.tabs.push(<Tab title={element}/>)
+            tabs.push(<Tab title={element}/>)
         });
 
         return(
             <div className="Tabs">
-                {this.tabs}
+                { tabs }
             </div>
         )
     }
