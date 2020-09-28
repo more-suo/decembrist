@@ -8,13 +8,11 @@ class Tabs extends Component {
     render() {
 
         this.props.tabsTitle.forEach(element => {
-            this.tabs.push(<Tab element={element}/>)
+            this.tabs.push(<Tab title={element}/>)
         });
 
         return(
             <div className="Tabs">
-                <Tab active={true}/>
-                <Tab/>
                 {this.tabs}
             </div>
         )
