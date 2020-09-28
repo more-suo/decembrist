@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import TabContent from "../../Tabs/TabContent/TabContent";
-import Sidebar from "../../Sidebar/Sidebar";
+import TabContent from "../TabContent/TabContent";
+import Sidebar from "../Sidebar/Sidebar";
 import "./ContestContent.css";
 
 

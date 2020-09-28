@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import ContestContent from "./TaskContent/ContestContent";
+import ContestContent from "../TaskContent/ContestContent";
 
 class Contest extends Component {
     render() {

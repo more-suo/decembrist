@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import LimitsTable from "../../Contest/TaskContent/LimitsTable/LimitsTable";
-import SamplesTable from "../../Contest/TaskContent/SamplesTable/SamplesTable";
+import LimitsTable from "../LimitsTable/LimitsTable";
+import SamplesTable from "../SamplesTable/SamplesTable";
 
 class TabContent extends Component {
     render() {
