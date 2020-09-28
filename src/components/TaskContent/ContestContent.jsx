@@ -55,6 +55,7 @@ class ContestContent extends Component {
     }
     tasks = [this.task0, this.task1]
     tabs = []
+    titles = []
 
     render() {
         this.tasks.forEach(element => {
@@ -66,11 +67,13 @@ class ContestContent extends Component {
                             samples={element.samples}
                 />
             )
+
+            this.titles.push(element.title)
         });
 
         return(
             <div>
-                <Sidebar isToggled={this.state.sidebarIsToggled}/>
+                <Sidebar isToggled={this.state.sidebarIsToggled} tabTitles={this.titles}/>
 
                 <div onClick={this.toggleSidebar}>
                     {this.state.sidebarIsToggled ? "> Open" : "< Toggle"} Sidebar
