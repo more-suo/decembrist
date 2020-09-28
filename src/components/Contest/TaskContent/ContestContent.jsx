@@ -1,10 +1,17 @@
 import React, {Component} from "react";
 import TabContent from "../../Tabs/TabContent/TabContent";
+import Sidebar from "../../Sidebar/Sidebar";
 import "./ContestContent.css";
 
 class ContestContent extends Component {
     state = {
         activeTab: 0,
+    }
+
+    toggleSidebar = () => {
+        this.setState({
+            sidebarIsToggled: !this.state.sidebarIsToggled,
+        })
     }
 
     task0 = {
@@ -47,8 +54,23 @@ class ContestContent extends Component {
         });
 
         return(
-            <div className="ContestContent">
-                { this.tabs[this.state.activeTab] }
+            <div>
+                <Sidebar isToggled={this.state.sidebarIsToggled}/>
+
+                <div onClick={this.toggleSidebar}>
+                    {this.state.sidebarIsToggled ? "> Open" : "< Toggle"} Sidebar
+                </div>
+
+                <div tabIndex="0" onKeyDown={(event => this.handleKeyPress(event))}>
+                    <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
+                        <div className="main-window">
+                            <div className="ContestContent">
+                                { this.tabs[this.state.activeTab] }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         )
     }

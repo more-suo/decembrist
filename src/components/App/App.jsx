@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import AuthForm from "../AuthForm/AuthForm";
 import Contest from "../Contest/Contest";
-import Sidebar from "../Sidebar/Sidebar";
 import "./App.css";
 
 class App extends Component {
@@ -16,11 +15,6 @@ class App extends Component {
         })
     }
 
-    toggleSidebar = () => {
-        this.setState({
-            sidebarIsToggled: !this.state.sidebarIsToggled,
-        })
-    }
 
     handleKeyPress = (event) => {
         console.log(event.key + " pressed")
@@ -45,19 +39,8 @@ class App extends Component {
             window.push(<h1>What are you trying to do? Error 404! :|</h1>)
         }
 
-        return (
-            <div tabIndex="0" onKeyDown={(event => this.handleKeyPress(event))}>
-                <Sidebar isToggled={this.state.sidebarIsToggled}/>
-                <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
-                    <div className="main-window">
-                        <div onClick={this.toggleSidebar}>
-                            {this.state.sidebarIsToggled ? "> Open" : "< Toggle"} Sidebar
-                        </div>
-                        { window }
-                    </div>
-                </div>
-            </div>
-        )
+        return window
+
     }
 }
 
