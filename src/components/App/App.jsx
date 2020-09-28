@@ -3,30 +3,16 @@ import AuthForm from "../AuthForm/AuthForm";
 import Contest from "../Contest/Contest";
 import "./App.css";
 
+
 class App extends Component {
     state = {
         app: "contest",
-        sidebarIsToggled: true,
     }
 
     setApp = (AppName) => {
         this.setState({
             app: AppName
         })
-    }
-
-
-    handleKeyPress = (event) => {
-        console.log(event.key + " pressed")
-        if(event.key === "ArrowRight"){
-            this.setState({
-                sidebarIsToggled: false,
-            })
-        } else if(event.key === "ArrowLeft"){
-            this.setState({
-                sidebarIsToggled: true,
-            })
-        }
     }
 
     render() {
@@ -40,7 +26,6 @@ class App extends Component {
         }
 
         return window
-
     }
 }
 

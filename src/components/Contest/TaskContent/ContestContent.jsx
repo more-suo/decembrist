@@ -3,15 +3,30 @@ import TabContent from "../../Tabs/TabContent/TabContent";
 import Sidebar from "../../Sidebar/Sidebar";
 import "./ContestContent.css";
 
+
 class ContestContent extends Component {
     state = {
         activeTab: 0,
+        sidebarIsToggled: true,
     }
 
     toggleSidebar = () => {
         this.setState({
             sidebarIsToggled: !this.state.sidebarIsToggled,
         })
+    }
+
+    handleKeyPress = (event) => {
+        console.log(event.key + " pressed")
+        if(event.key === "ArrowRight"){
+            this.setState({
+                sidebarIsToggled: false,
+            })
+        } else if(event.key === "ArrowLeft"){
+            this.setState({
+                sidebarIsToggled: true,
+            })
+        }
     }
 
     task0 = {
@@ -70,7 +85,6 @@ class ContestContent extends Component {
                         </div>
                     </div>
                 </div>
-
             </div>
         )
     }
