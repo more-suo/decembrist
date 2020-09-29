@@ -3,6 +3,10 @@ import Tab from "../Tab/Tab";
 
 
 class Tabs extends Component {
+    state = {
+        activeTab: null,
+    }
+
 
     render() {
         let tabs = []
