@@ -56,10 +56,10 @@ class ContestContent extends Component {
     tasks = [this.task0, this.task1]
 
     render() {
-        let tabs = []
-        let titles = []
+        let tabs = {}
+        let titles = {}
         this.tasks.forEach(element => {
-            tabs.push(
+            tabs[element.id] = (
                 <TabContent title={element.title}
                             tl={element.tl}
                             ml={element.ml}
@@ -67,7 +67,10 @@ class ContestContent extends Component {
                             samples={element.samples}
                 />
             )
-            titles.push(element.title)
+            titles[element.id] = {
+                title: element.title,
+                id: element.id,
+            }
         });
 
         return(

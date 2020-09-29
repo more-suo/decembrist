@@ -7,6 +7,9 @@ class Tabs extends Component {
         activeTab: null,
     }
 
+    getActiveTab = () => {
+
+    }
 
     render() {
         let tabs = []
