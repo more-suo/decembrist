@@ -7,15 +7,16 @@ class Tabs extends Component {
         activeTab: null,
     }
 
-    getActiveTab = () => {
-
-    }
+    // getActiveTab = () => {
+    //
+    // }
 
     render() {
-        let tabs = []
-        this.props.tabsTitle.forEach(element => {
-            tabs.push(<Tab title={element}/>)
-        });
+        const tabsTitle = this.props.tabsTitle;
+
+        let tabs = Object.keys(tabsTitle).map((key) => (
+            <Tab key={key} title={tabsTitle[key]}/>
+        ))
 
         return(
             <div className="Tabs">

@@ -57,7 +57,7 @@ class ContestContent extends Component {
 
     render() {
         let tabs = {}
-        let titles = {}
+        let tabTitles = {}
         this.tasks.forEach(element => {
             tabs[element.id] = (
                 <TabContent title={element.title}
@@ -67,15 +67,12 @@ class ContestContent extends Component {
                             samples={element.samples}
                 />
             )
-            titles[element.id] = {
-                title: element.title,
-                id: element.id,
-            }
+            tabTitles[element.id] = element.title
         });
 
         return(
             <div>
-                <Sidebar isToggled={this.state.sidebarIsToggled} tabTitles={titles}/>
+                <Sidebar isToggled={this.state.sidebarIsToggled} tabTitles={tabTitles}/>
 
                 <div onClick={this.toggleSidebar}>
                     {this.state.sidebarIsToggled ? "> Open" : "< Toggle"} Sidebar
