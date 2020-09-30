@@ -10,9 +10,10 @@ class Tabs extends Component {
         console.log(Object.keys(tabsTitle).map(element => Number(element)));
 
         let tabs = Object.keys(tabsTitle).map((key) => (
-            <Tab key={key}
+            <Tab key={Number(key)}
                  title={tabsTitle[key]}
-                 active={this.props.activeTab===Number(key)}/>
+                 active={this.props.activeTab===Number(key)}
+                 activateTab={this.props.activateTab}/>
         ))
 
         return(
