@@ -3,17 +3,16 @@ import Tab from "../Tab/Tab";
 
 
 class Tabs extends Component {
-    state = {
-        activeTab: null,
-    }
-
     render() {
         const tabsTitle = this.props.tabsTitle;
 
+        console.log(tabsTitle)
+        console.log(Object.keys(tabsTitle).map(element => Number(element)));
+
         let tabs = Object.keys(tabsTitle).map((key) => (
-            <Tab classkey={key}
+            <Tab key={key}
                  title={tabsTitle[key]}
-                 activeTab={this.props.activeTab}/>
+                 active={this.props.activeTab===Number(key)}/>
         ))
 
         return(

@@ -67,6 +67,7 @@ class ContestContent extends Component {
         this.tasks.forEach(element => {
             tabs[element.id] = (
                 <TabContent title={element.title}
+                            key={element.id}
                             tl={element.tl}
                             ml={element.ml}
                             content={element.content}
@@ -79,7 +80,7 @@ class ContestContent extends Component {
             <div>
                 <Sidebar isToggled={this.state.sidebarIsToggled}
                          tabTitles={tabTitles}
-                         activeTab={this.props.activeTab}
+                         activeTab={this.state.activeTab}
                          activateTab={this.activateTab}/>
 
                 <div onClick={this.toggleSidebar}>
