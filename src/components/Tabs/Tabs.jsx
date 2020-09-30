@@ -11,7 +11,9 @@ class Tabs extends Component {
         const tabsTitle = this.props.tabsTitle;
 
         let tabs = Object.keys(tabsTitle).map((key) => (
-            <Tab classkey={key} title={tabsTitle[key]}/>
+            <Tab classkey={key}
+                 title={tabsTitle[key]}
+                 activeTab={this.props.activeTab}/>
         ))
 
         return(
