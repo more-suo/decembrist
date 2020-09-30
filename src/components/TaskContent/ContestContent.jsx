@@ -33,7 +33,6 @@ class ContestContent extends Component {
         this.setState({
             activeTab: tabId,
         })
-        console.log(123456)
     }
 
     task0 = {
