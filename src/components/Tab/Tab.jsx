@@ -4,7 +4,7 @@ import "./Tab.css";
 class Tab extends Component {
     render() {
         return(
-            <div onClick={this.props.activateTab.bind(this, 1)}
+            <div onClick={this.props.activateTab.bind(this, this.props.id)}
                  className={`Tab ${this.props.active? "active" : ""}`}>
                 {this.props.title}
             </div>
