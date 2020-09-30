@@ -79,6 +79,7 @@ class ContestContent extends Component {
             <div>
                 <Sidebar isToggled={this.state.sidebarIsToggled}
                          tabTitles={tabTitles}
+                         activeTab={this.props.activeTab}
                          activateTab={this.activateTab}/>
 
                 <div onClick={this.toggleSidebar}>
