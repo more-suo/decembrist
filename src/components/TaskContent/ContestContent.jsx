@@ -29,6 +29,12 @@ class ContestContent extends Component {
         }
     }
 
+    activateTab = (tabId) => {
+        this.setState({
+            activeTab: tabId,
+        })
+    }
+
     task0 = {
         id: 0,
         title: "Lorem Ipsum",
@@ -64,15 +70,16 @@ class ContestContent extends Component {
                             tl={element.tl}
                             ml={element.ml}
                             content={element.content}
-                            samples={element.samples}
-                />
+                            samples={element.samples}/>
             )
             tabTitles[element.id] = element.title
         });
 
         return(
             <div>
-                <Sidebar isToggled={this.state.sidebarIsToggled} tabTitles={tabTitles}/>
+                <Sidebar isToggled={this.state.sidebarIsToggled}
+                         tabTitles={tabTitles}
+                         activateTab={this.activateTab}/>
 
                 <div onClick={this.toggleSidebar}>
                     {this.state.sidebarIsToggled ? "> Open" : "< Toggle"} Sidebar
