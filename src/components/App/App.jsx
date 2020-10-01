@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import AuthForm from "../AuthForm/AuthForm";
 import Contest from "../Contest/Contest";
+import MainPage from "../MainPage/MainPage";
 import "./App.css";
 
 
@@ -21,6 +22,8 @@ class App extends Component {
             window.push(<AuthForm setApp={this.setApp}/>)
         } else if (this.state.app === "contest"){
             window.push(<Contest setApp={this.setApp}/>)
+        } else if (this.state.app === "MainPage"){
+            window.push(<MainPage setApp={this.setApp}/>)
         } else {
             window.push(<h1>What are you trying to do? Error 404! :|</h1>)
         }
