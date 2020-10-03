@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import "./LimitsTable.css";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faMemory, faHourglass} from "@fortawesome/free-solid-svg-icons";
 
 class LimitsTable extends Component {
     render() {
@@ -7,8 +9,12 @@ class LimitsTable extends Component {
             <table>
                 <tbody>
                 <tr>
-                    <td id="tl" className="task-parameter">TL {this.props.tl}s </td>
-                    <td id="ml" className="task-parameter">ML {this.props.ml}MB </td>
+                    <td id="tl" className="task-parameter">
+                        <FontAwesomeIcon icon={faHourglass}/> {this.props.tl}s
+                    </td>
+                    <td id="ml" className="task-parameter">
+                        <FontAwesomeIcon icon={faMemory}/> {this.props.ml}MB
+                    </td>
                 </tr>
                 </tbody>
             </table>
