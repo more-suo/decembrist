@@ -25,7 +25,7 @@ class App extends Component {
         } else if (this.state.app === "MainPage"){
             window.push(<MainPage setApp={this.setApp}/>)
         } else {
-            window.push(<h1>What are you trying to do? Error 404! :|</h1>)
+            window.push(<h1 className="errorMessage">What are you trying to do? Error 404! :|</h1>)
         }
 
         return window
