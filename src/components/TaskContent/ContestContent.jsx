@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import TabContent from "../TabContent/TabContent";
 import Sidebar from "../Sidebar/Sidebar";
 import "./ContestContent.css";
+import StandingsTable from "../StandigsTable/StandingsTable";
 
 
 class ContestContent extends Component {
@@ -100,7 +101,7 @@ class ContestContent extends Component {
                     <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
                         <div className="main-window">
                             <div className="ContestContent">
-                                { tabs[this.state.activeTab] }
+                                { this.state.tableIsToggled? tabs[this.state.activeTab] : StandingsTable}
                             </div>
                         </div>
                     </div>
