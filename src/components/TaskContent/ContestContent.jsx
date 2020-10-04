@@ -27,6 +27,14 @@ class ContestContent extends Component {
             this.setState({
                 sidebarIsToggled: true,
             })
+        } else if(event.key === "ArrowDown"){
+            this.setState({
+                tableIsToggled: true,
+            })
+        } else if(event.key === "ArrowUp"){
+            this.setState({
+                tableIsToggled: false,
+            })
         }
     }
 
