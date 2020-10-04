@@ -8,6 +8,7 @@ class ContestContent extends Component {
     state = {
         activeTab: 0,
         sidebarIsToggled: true,
+        tableIsToggled: true,
     }
 
     toggleSidebar = () => {
