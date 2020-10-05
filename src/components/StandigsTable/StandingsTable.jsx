@@ -1,10 +1,10 @@
 import React, {Component} from "react";
-
+import "./StandingsTable.css";
 
 class StandingsTable extends Component {
     render() {
         return (
-            <div className="StandingsTable">
+            <table className="StandingsTable">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -15,7 +15,7 @@ class StandingsTable extends Component {
                 <tbody>
 
                 </tbody>
-            </div>
+            </table>
         )
     }
 }

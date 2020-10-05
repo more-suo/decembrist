@@ -1,9 +1,8 @@
 .StandingsTable {
     width: 100%;
-    margin-bottom: 2rem;
-    color: black;
-    margin-top: 2rem;
-    text-align: left;
+    margin: auto;
+    border: black solid 1px;
+    border-radius: 5px;
 }
 
 .StandingsTable thead th {
