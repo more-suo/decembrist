@@ -101,7 +101,7 @@ class ContestContent extends Component {
                     <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
                         <div className="main-window">
                             <div className="ContestContent">
-                                { this.state.tableIsToggled? tabs[this.state.activeTab] : StandingsTable}
+                                { this.state.tableIsToggled? tabs[this.state.activeTab] : <StandingsTable/>}
                             </div>
                         </div>
                     </div>
