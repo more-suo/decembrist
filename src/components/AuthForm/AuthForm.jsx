@@ -12,9 +12,10 @@ class AuthForm extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://julia-api.azurewebsites.net/api/contests/")
+        axios.get("http://julia-api.azurewebsites.net/api/contests/?format=json")
             .then( res => {
                 const result = res.data;
+                console.log(result);
                 this.setState({
                     something: result,
                 })
