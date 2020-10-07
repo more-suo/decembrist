@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import axios from "axios";
+import API from "../../utils/API";
 import LoginForm from "./LoginForm/LoginForm";
 import RegistrationForm from "./RegistrationForm/RegistrationForm";
 import ResetForm from "./ResetForm/ResetForm";
@@ -12,14 +12,9 @@ class AuthForm extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://julia-api.azurewebsites.net/api/contests/?format=json")
-            .then( res => {
-                const result = res.data;
-                console.log(result);
-                this.setState({
-                    something: result,
-                })
-            })
+        this.setState({
+            something: API.get('/contests').data.results[0]
+        })
     }
 
     setForm = (form) => {
