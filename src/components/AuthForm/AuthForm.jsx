@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import axios from "axios";
 import LoginForm from "./LoginForm/LoginForm";
 import RegistrationForm from "./RegistrationForm/RegistrationForm";
 import ResetForm from "./ResetForm/ResetForm";
@@ -7,6 +8,17 @@ import "./AuthForm.css";
 class AuthForm extends Component {
     state = {
         action: "login",
+        something: {},
+    }
+
+    componentDidMount() {
+        axios.get("http://julia-api.azurewebsites.net/api/contests/")
+            .then( res => {
+                const result = res.data;
+                this.setState({
+                    something: result,
+                })
+            })
     }
 
     setForm = (form) => {
@@ -16,6 +28,7 @@ class AuthForm extends Component {
     }
 
     render() {
+        console.log(this.state.something);
         let form = "This is a form."
         if (this.state.action === "login") {
             form = <LoginForm setForm={this.setForm}
