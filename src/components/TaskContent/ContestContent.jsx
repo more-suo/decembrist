@@ -2,8 +2,6 @@ import React, {Component} from "react";
 import TabContent from "../TabContent/TabContent";
 import Sidebar from "../Sidebar/Sidebar";
 import StandingsTable from "../StandigsTable/StandingsTable";
-// import API from "../../utils/API";
-// import axios from "axios";
 import "./ContestContent.css";
 
 
