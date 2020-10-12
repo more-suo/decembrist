@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import LoginForm from "./LoginForm/LoginForm";
 import RegistrationForm from "./RegistrationForm/RegistrationForm";
 import ResetForm from "./ResetForm/ResetForm";
@@ -11,11 +11,11 @@ class AuthForm extends Component {
         something: {},
     }
 
-    componentDidMount() {
-        this.setState({
-            something: API.get('/contests').data.results[0]
-        })
-    }
+    // componentDidMount() {
+    //     this.setState({
+    //         something: API.get('/contests')
+    //     })
+    // }
 
     setForm = (form) => {
         this.setState({
