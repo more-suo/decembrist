@@ -28,7 +28,7 @@ class Contest extends Component {
 
     render() {
         return (
-            <ContestContent />
+            <ContestContent tasks={this.state.tasks}/>
         )
     }
 }
