@@ -3,10 +3,10 @@ import ContestContent from "../TaskContent/ContestContent";
 
 class Contest extends Component {
     state = {
-
+        tasks: [],
     }
 
-    componentDidMount() {
+    componentWillMount() {
         const apiUrl = "https://julia-api-server.herokuapp.com/api/";
         fetch(apiUrl + "contests", {
             headers: {

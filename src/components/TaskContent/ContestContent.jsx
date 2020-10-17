@@ -13,7 +13,8 @@ class ContestContent extends Component {
         tasks: [],
     }
 
-    componentDidMount() {
+    componentWillMount() {
+        console.log(this.props.tasks);
         const apiUrl = "https://julia-api-server.herokuapp.com/api/";
         this.props.tasks.forEach( element => {
             fetch(apiUrl + "tasks/" + element.toString(), {
@@ -32,6 +33,30 @@ class ContestContent extends Component {
                     console.log
                 )
         })
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        // if (nextProps.tasks !== this.state.props.tasks){
+            console.log(this.props.tasks);
+            const apiUrl = "https://julia-api-server.herokuapp.com/api/";
+            nextProps.tasks.forEach( element => {
+                fetch(apiUrl + "tasks/" + element.toString(), {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                    }
+                })
+                    .then(res => res.json())
+                    .then(
+                        (result) => {
+                            this.state.tasks.push(result)
+                        }
+                    )
+                    .catch(
+                        console.log
+                    )
+            })
+        // }
     }
 
     toggleSidebar = () => {
