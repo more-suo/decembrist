@@ -7,9 +7,8 @@ class Contest extends Component {
     }
 
     componentDidMount() {
-        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-        const apiUrl = "https://julia-api.azurewebsites.net/api/";
-        fetch(proxyUrl + apiUrl + "/contests", {
+        const apiUrl = "https://julia-api-server.herokuapp.com/api/";
+        fetch(apiUrl + "contests", {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
