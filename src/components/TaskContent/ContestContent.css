@@ -38,3 +38,13 @@
     width: calc(100% - 300px);
     transition: all .3s;
 }
+
+.angle-sidebar-toggler {
+    position: fixed;
+    top: 50vh;
+    left: .5em;
+}
+
+.angle-sidebar-toggler.open {
+    left: calc(.5em + 300px);
+}

@@ -102,8 +102,8 @@ class ContestContent extends Component {
                 <div onClick={this.toggleSidebar}>
                     {
                         this.state.sidebarIsToggled ?
-                            <FontAwesomeIcon icon={faAngleRight}/> :
-                            <FontAwesomeIcon icon={faAngleLeft}/>
+                            <FontAwesomeIcon icon={faAngleRight} className="angle-sidebar-toggler"/> :
+                            <FontAwesomeIcon icon={faAngleLeft} className="angle-sidebar-toggler open"/>
                     }
                 </div>
 
