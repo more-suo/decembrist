@@ -32,14 +32,13 @@ class ContestContent extends Component {
 
                         let tab_contents = {};
                         tab_contents[result.id] = (
-                            <TabContent title={element.title}
-                                        key={element.id}
-                                        tl={element.tl}
-                                        ml={element.ml}
-                                        content={element.content}
-                                        samples={element.samples}/>
+                            <TabContent title={result.title}
+                                        key={result.id}
+                                        tl={result.tl}
+                                        ml={result.ml}
+                                        content={result.content}
+                                        samples={result.samples}/>
                         );
-
 
                         let tab_titles = {};
                         tab_titles[result.id] = result.title;
