@@ -2,6 +2,9 @@ import React, {Component} from "react";
 import TabContent from "../TabContent/TabContent";
 import Sidebar from "../Sidebar/Sidebar";
 import StandingsTable from "../StandigsTable/StandingsTable";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faAngleRight} from "@fortawesome/free-solid-svg-icons";
+import {faAngleLeft} from "@fortawesome/free-solid-svg-icons";
 import "./ContestContent.css";
 
 
@@ -97,14 +100,22 @@ class ContestContent extends Component {
                          activateTab={this.activateTab}/>
 
                 <div onClick={this.toggleSidebar}>
-                    {this.state.sidebarIsToggled ? "> Open" : "< Toggle"} Sidebar
+                    {
+                        this.state.sidebarIsToggled ?
+                            <FontAwesomeIcon icon={faAngleRight}/> :
+                            <FontAwesomeIcon icon={faAngleLeft}/>
+                    }
                 </div>
 
                 <div tabIndex="0" onKeyDown={(event => this.handleKeyPress(event))}>
                     <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
                         <div className="main-window">
                             <div className="ContestContent">
-                                { this.state.tableIsToggled? this.state.tabContents[this.state.activeTab] : <StandingsTable/>}
+                                {
+                                    this.state.tableIsToggled ?
+                                    this.state.tabContents[this.state.activeTab] :
+                                    <StandingsTable/>
+                                }
                             </div>
                         </div>
                     </div>
