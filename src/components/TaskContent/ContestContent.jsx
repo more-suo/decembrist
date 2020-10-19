@@ -11,7 +11,7 @@ class ContestContent extends Component {
         sidebarIsToggled: true,
         tableIsToggled: true,
         tasks: [],
-        tabs: {},
+        tabContents: {},
         tabTitles: {}
     }
 
@@ -28,7 +28,27 @@ class ContestContent extends Component {
                 .then(res => res.json())
                 .then(
                     (result) => {
-                        this.state.tasks.push(result)
+                        this.state.tasks.push(result);
+
+                        let tab_contents = {};
+                        tab_contents[result.id] = (
+                            <TabContent title={element.title}
+                                        key={element.id}
+                                        tl={element.tl}
+                                        ml={element.ml}
+                                        content={element.content}
+                                        samples={element.samples}/>
+                        );
+
+
+                        let tab_titles = {};
+                        tab_titles[result.id] = result.title;
+
+                        this.setState({
+                            tabContents: {...this.state.tabContents, ...tab_contents},
+                            tabTitles: {...this.state.tabTitles, ...tab_titles},
+                        });
+
                     }
                 )
                 .catch(
@@ -72,18 +92,6 @@ class ContestContent extends Component {
 
 
     render() {
-        this.state.tasks.forEach(element => {
-            this.state.tabs[element.id] = (
-                <TabContent title={element.title}
-                            key={element.id}
-                            tl={element.tl}
-                            ml={element.ml}
-                            content={element.content}
-                            samples={element.samples}/>
-            )
-            this.state.tabTitles[element.id] = element.title
-        });
-
         return (
             <div>
                 <Sidebar isToggled={this.state.sidebarIsToggled}
@@ -99,7 +107,7 @@ class ContestContent extends Component {
                     <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
                         <div className="main-window">
                             <div className="ContestContent">
-                                { this.state.tableIsToggled? this.state.tabs[this.state.activeTab] : <StandingsTable/>}
+                                { this.state.tableIsToggled? this.state.tabContents[this.state.activeTab] : <StandingsTable/>}
                             </div>
                         </div>
                     </div>
