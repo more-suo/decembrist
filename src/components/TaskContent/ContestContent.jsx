@@ -11,6 +11,8 @@ class ContestContent extends Component {
         sidebarIsToggled: true,
         tableIsToggled: true,
         tasks: [],
+        tabs: {},
+        tabTitles: {}
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
@@ -70,10 +72,8 @@ class ContestContent extends Component {
 
 
     render() {
-        let tabs = {}
-        let tabTitles = {}
         this.state.tasks.forEach(element => {
-            tabs[element.id] = (
+            this.state.tabs[element.id] = (
                 <TabContent title={element.title}
                             key={element.id}
                             tl={element.tl}
@@ -81,13 +81,13 @@ class ContestContent extends Component {
                             content={element.content}
                             samples={element.samples}/>
             )
-            tabTitles[element.id] = element.title
+            this.state.tabTitles[element.id] = element.title
         });
 
         return (
             <div>
                 <Sidebar isToggled={this.state.sidebarIsToggled}
-                         tabTitles={tabTitles}
+                         tabTitles={this.state.tabTitles}
                          activeTab={this.state.activeTab}
                          activateTab={this.activateTab}/>
 
@@ -99,7 +99,7 @@ class ContestContent extends Component {
                     <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
                         <div className="main-window">
                             <div className="ContestContent">
-                                { this.state.tableIsToggled? tabs[this.state.activeTab] : <StandingsTable/>}
+                                { this.state.tableIsToggled? this.state.tabs[this.state.activeTab] : <StandingsTable/>}
                             </div>
                         </div>
                     </div>
