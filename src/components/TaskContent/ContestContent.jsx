@@ -10,13 +10,12 @@ class ContestContent extends Component {
         activeTab: 0,
         sidebarIsToggled: true,
         tableIsToggled: true,
-        tasks: [],
         tabContents: {},
-        tabTitles: {}
+        tabTitles: {},
+        tasks: []
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        console.log(this.props.tasks);
         const apiUrl = "https://julia-api-server.herokuapp.com/api/";
         nextProps.tasks.forEach( element => {
             fetch(apiUrl + "tasks/" + element.toString(), {
@@ -26,8 +25,7 @@ class ContestContent extends Component {
                 }
             })
                 .then(res => res.json())
-                .then(
-                    (result) => {
+                .then(result => {
                         this.state.tasks.push(result);
 
                         let tab_contents = {};
@@ -50,16 +48,16 @@ class ContestContent extends Component {
 
                     }
                 )
-                .catch(
-                    console.log
-                )
+                .catch( error => {
+                    console.log(error);
+                })
         })
     }
 
     toggleSidebar = () => {
         this.setState({
             sidebarIsToggled: !this.state.sidebarIsToggled,
-        })
+        });
     }
 
     handleKeyPress = (event) => {
