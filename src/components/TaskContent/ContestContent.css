@@ -43,8 +43,11 @@
     position: fixed;
     top: 50vh;
     left: .5em;
+    z-index: 999;
+    transition: .3s;
 }
 
 .angle-sidebar-toggler.open {
-    left: calc(.5em + 300px);
+    left: calc(.5em + 290px);
+    transition: .3s;
 }
