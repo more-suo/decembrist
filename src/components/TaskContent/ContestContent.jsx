@@ -93,30 +93,25 @@ class ContestContent extends Component {
 
     render() {
         return (
-            <div>
+            <div tabIndex="0" onKeyDown={(event => this.handleKeyPress(event))}>
+
                 <Sidebar isToggled={this.state.sidebarIsToggled}
                          tabTitles={this.state.tabTitles}
                          activeTab={this.state.activeTab}
                          activateTab={this.activateTab}/>
 
-                <div onClick={this.toggleSidebar}>
-                    {
-                        this.state.sidebarIsToggled ?
-                            <FontAwesomeIcon icon={faAngleRight} className="angle-sidebar-toggler"/> :
-                            <FontAwesomeIcon icon={faAngleLeft} className="angle-sidebar-toggler open"/>
-                    }
-                </div>
+                <FontAwesomeIcon onClick={this.toggleSidebar}
+                                 icon={this.state.sidebarIsToggled? faAngleRight : faAngleLeft}
+                                 className="angle-sidebar-toggler"/>
 
-                <div tabIndex="0" onKeyDown={(event => this.handleKeyPress(event))}>
-                    <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
-                        <div className="main-window">
-                            <div className="ContestContent">
-                                {
-                                    this.state.tableIsToggled ?
-                                    this.state.tabContents[this.state.activeTab] :
-                                    <StandingsTable/>
-                                }
-                            </div>
+                <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
+                    <div className="main-window">
+                        <div className="ContestContent">
+                            {
+                                this.state.tableIsToggled ?
+                                this.state.tabContents[this.state.activeTab] :
+                                <StandingsTable/>
+                            }
                         </div>
                     </div>
                 </div>
