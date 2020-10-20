@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import TabContent from "../TabContent/TabContent";
+import greetMessage from "../greetMessage/greetMessage";
 import Sidebar from "../Sidebar/Sidebar";
 import StandingsTable from "../StandigsTable/StandingsTable";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -19,15 +20,10 @@ class ContestContent extends Component {
     }
 
     componentDidMount() {
-        const greetMessage = {}
-        greetMessage[0] = (
-            <div>
-                Hello.
-            </div>
-        )
-
+        let greetTab = {}
+        greetTab[0] = greetMessage;
         this.setState({
-            tabContents: greetMessage,
+            tabContents: greetTab,
         })
     }
 
