@@ -1,12 +1,16 @@
 .greetMessageContainer {
     position: absolute;
+    height: 100%;
     width: 100%;
     transition: all .3s;
     left: 0;
 }
 
 .greetMessage {
-    width: 60%;
+    position: absolute;
+    top: 49.5vh;
+    left: 5%;
+    width: 90%;
     margin: auto;
     text-align: center;
     transition: all .3s;
