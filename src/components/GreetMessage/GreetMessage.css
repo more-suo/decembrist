@@ -1,0 +1,19 @@
+.greetMessageContainer {
+    position: absolute;
+    width: 100%;
+    transition: all .3s;
+    left: 0;
+}
+
+.greetMessage {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    transition: all .3s;
+}
+
+.greetMessageContainer.open-sidebar {
+    left: 300px;
+    width: calc(100% - 300px);
+    transition: all .3s;
+}

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import TabContent from "../TabContent/TabContent";
-import greetMessage from "../greetMessage/greetMessage";
+import GreetMessage from "../GreetMessage/GreetMessage";
 import Sidebar from "../Sidebar/Sidebar";
 import StandingsTable from "../StandigsTable/StandingsTable";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -19,13 +19,13 @@ class ContestContent extends Component {
         tasks: []
     }
 
-    componentDidMount() {
-        let greetTab = {}
-        greetTab[0] = greetMessage;
-        this.setState({
-            tabContents: greetTab,
-        })
-    }
+    // componentDidMount() {
+    //     let greetTab = {}
+    //     greetTab[0] = GreetMessage;
+    //     this.setState({
+    //         tabContents: greetTab,
+    //     })
+    // }
 
     componentWillReceiveProps(nextProps, nextContext) {
         const apiUrl = "https://julia-api-server.herokuapp.com/api/";
@@ -101,6 +101,20 @@ class ContestContent extends Component {
 
 
     render() {
+        const tabs = (
+            <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
+                <div className="main-window">
+                    <div className="ContestContent">
+                        {
+                            this.state.tableIsToggled ?
+                                this.state.tabContents[this.state.activeTab] :
+                                <StandingsTable/>
+                        }
+                    </div>
+                </div>
+            </div>
+        )
+
         return (
             <div tabIndex="0" onKeyDown={(event => this.handleKeyPress(event))}>
 
@@ -113,17 +127,8 @@ class ContestContent extends Component {
                                  icon={this.state.sidebarIsToggled? faAngleRight : faAngleLeft}
                                  className="angle-sidebar-toggler"/>
 
-                <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
-                    <div className="main-window">
-                        <div className="ContestContent">
-                            {
-                                this.state.tableIsToggled ?
-                                this.state.tabContents[this.state.activeTab] :
-                                <StandingsTable/>
-                            }
-                        </div>
-                    </div>
-                </div>
+                { this.state.activeTab === 0 ? <GreetMessage sidebarIsToggled={this.state.sidebarIsToggled}/> : tabs }
+
             </div>
         )
     }

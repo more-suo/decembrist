@@ -8,15 +8,6 @@
     padding-top: 1em;
 }
 
-.task-contest {
-    text-align: center;
-    transition: 0.25s;
-    width: 80vw;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .window-box {
     position: absolute;
     width: 100%;
