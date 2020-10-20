@@ -18,6 +18,19 @@ class ContestContent extends Component {
         tasks: []
     }
 
+    componentDidMount() {
+        const greetMessage = {}
+        greetMessage[0] = (
+            <div>
+                Hello.
+            </div>
+        )
+
+        this.setState({
+            tabContents: greetMessage,
+        })
+    }
+
     componentWillReceiveProps(nextProps, nextContext) {
         const apiUrl = "https://julia-api-server.herokuapp.com/api/";
         nextProps.tasks.forEach( element => {
