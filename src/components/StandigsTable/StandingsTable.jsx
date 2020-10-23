@@ -1,17 +1,22 @@
 import React, {Component} from "react";
 import "./StandingsTable.css";
-import TabContent from "../TabContent/TabContent";
+
 
 class StandingsTable extends Component {
     state = {
-        tabTitles: this.props.tabTitles,
-        taskTitles: {},
+        taskTitles: [],
     }
 
     componentWillMount() {
-        this.state.taskTitles = Object.keys(this.props.tabTitles).map(el => {
-            return <th scope="col"> {this.props.tabTitles[el]} </th>
+        const titles = Object.keys(this.props.taskTitles).map(el => {
+            return (
+                <th scope="col"> {this.props.taskTitles[el]} </th>
+            )
         });
+
+        this.setState({
+            taskTitles: titles,
+        })
     }
 
     render() {

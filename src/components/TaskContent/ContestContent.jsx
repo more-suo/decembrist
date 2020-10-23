@@ -119,7 +119,7 @@ class ContestContent extends Component {
                                  icon={this.state.sidebarIsToggled? faAngleRight : faAngleLeft}
                                  className="angle-sidebar-toggler"/>
 
-                { this.state.tableIsToggled? tab : <StandingsTable tabTitles={this.state.tabTitles}/>}
+                { this.state.tableIsToggled? tab : <StandingsTable taskTitles={this.state.tabTitles}/>}
 
             </div>
         )
