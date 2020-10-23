@@ -66,19 +66,19 @@ class ContestContent extends Component {
 
     handleKeyPress = (event) => {
         console.log(event.key + " pressed")
-        if(event.key === "ArrowRight"){
+        if (event.key === "ArrowRight"){
             this.setState({
                 sidebarIsToggled: false,
             })
-        } else if(event.key === "ArrowLeft"){
+        } else if (event.key === "ArrowLeft"){
             this.setState({
                 sidebarIsToggled: true,
             })
-        } else if(event.key === "ArrowDown"){
+        } else if (event.key === "ArrowDown"){
             this.setState({
                 tableIsToggled: true,
             })
-        } else if(event.key === "ArrowUp"){
+        } else if (event.key === "ArrowUp"){
             this.setState({
                 tableIsToggled: false,
             })
@@ -119,7 +119,7 @@ class ContestContent extends Component {
                                  icon={this.state.sidebarIsToggled? faAngleRight : faAngleLeft}
                                  className="angle-sidebar-toggler"/>
 
-                { this.state.tableIsToggled? tab : <StandingsTable/>}
+                { this.state.tableIsToggled? tab : <StandingsTable tabTitles={this.state.tabTitles}/>}
 
             </div>
         )
