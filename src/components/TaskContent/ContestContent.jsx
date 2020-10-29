@@ -88,6 +88,7 @@ class ContestContent extends Component {
     activateTab = (tabId) => {
         this.setState({
             activeTab: tabId,
+            tableIsToggled: true,
         })
     }
 
