@@ -13,7 +13,7 @@ class LimitsTable extends Component {
                         <FontAwesomeIcon icon={faHourglass}/> {this.props.tl}s
                     </td>
                     <td id="ml" className="task-parameter">
-                        <FontAwesomeIcon icon={faMemory}/> {this.props.ml}MB
+                        <FontAwesomeIcon icon={faMemory}/> {this.props.ml / Math.pow(2, 20)} MB
                     </td>
                 </tr>
                 </tbody>
