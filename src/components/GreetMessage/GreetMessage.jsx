@@ -10,11 +10,9 @@ import "./GreetMessage.css";
 class GreetMessage extends Component {
     render() {
         return (
-            <div className={`greetMessageContainer ${this.props.sidebarIsToggled? "closed-sidebar" : "open-sidebar"}`}>
-                <div className="greetMessage">
-                    Press <FontAwesomeIcon icon={this.props.sidebarIsToggled? faAngleRight: faAngleLeft} onClick={this.props.toggleSidebar}/> to {this.props.sidebarIsToggled ? "open" : "close"} sidebar and choose task.
-                    Or use the <FontAwesomeIcon icon={faArrowLeft}/> or <FontAwesomeIcon icon={faArrowRight}/> keys.
-                </div>
+            <div className="greetMessage">
+                Press <FontAwesomeIcon icon={this.props.sidebarIsToggled? faAngleRight: faAngleLeft} onClick={this.props.toggleSidebar}/> to {this.props.sidebarIsToggled ? "open" : "close"} sidebar and choose task.
+                Or use the <FontAwesomeIcon icon={faArrowLeft}/> or <FontAwesomeIcon icon={faArrowRight}/> keys.
             </div>
         )
     }
