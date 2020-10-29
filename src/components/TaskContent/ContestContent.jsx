@@ -93,19 +93,21 @@ class ContestContent extends Component {
 
 
     render() {
-        const active_tab = (
+        const content = (
             <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
                 <div className="main-window">
                     <div className="ContestContent">
-                        { this.state.tabContents[this.state.activeTab] }
+                        {
+                            this.state.tableIsToggled?
+                                this.state.activeTab === 0?
+                                    <GreetMessage sidebarIsToggled={this.state.sidebarIsToggled} toggleSidebar={this.toggleSidebar}/> :
+                                    this.state.tabContents[this.state.activeTab] :
+                                <StandingsTable taskTitles={this.state.tabTitles}/>
+                        }
                     </div>
                 </div>
             </div>
         )
-
-        const tab = this.state.activeTab === 0 ?
-            <GreetMessage sidebarIsToggled={this.state.sidebarIsToggled} toggleSidebar={this.toggleSidebar}/> :
-            active_tab;
 
         return (
             <div tabIndex="0" onKeyDown={(event => this.handleKeyPress(event))}>
@@ -119,7 +121,7 @@ class ContestContent extends Component {
                                  icon={this.state.sidebarIsToggled? faAngleRight : faAngleLeft}
                                  className="angle-sidebar-toggler"/>
 
-                { this.state.tableIsToggled? tab : <StandingsTable taskTitles={this.state.tabTitles}/>}
+                { content }
 
             </div>
         )
