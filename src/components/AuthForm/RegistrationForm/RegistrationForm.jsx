@@ -34,17 +34,33 @@ class RegistrationForm extends Component {
         return (
             <div className="registration-form">
                 <h2>Let's get acquainted!</h2>
-                <div className="form-info" id="form-info">
+                <div className="form-info"
+                     id="form-info">
                     I need your future username, <br/>
                     your e-mail & your future password.
                 </div>
                 <label htmlFor="reg-username" />
-                <input type="text" name="reg-Username" id="reg-username" placeholder="Username" />
+                <input type="text"
+                       name="reg-Username"
+                       id="reg-username"
+                       placeholder="Username"
+                       onChange={this.setUsername}/>
                 <label htmlFor="reg-e-mail" />
-                <input type="text" name="reg-E-mail" id="reg-e-mail" placeholder="E-mail" />
+                <input type="text"
+                       name="reg-E-mail"
+                       id="reg-e-mail"
+                       placeholder="E-mail"
+                       onChange={this.setEmail}/>
                 <label htmlFor="reg-password" />
-                <input type="password" name="reg-Password" id="reg-password" placeholder="Password" autoComplete="on" />
-                <button className="registration-button" type="button" id="sign-up-button">
+                <input type="password"
+                       name="reg-Password"
+                       id="reg-password"
+                       placeholder="Password"
+                       autoComplete="on"
+                       onChange={this.setPassword}/>
+                <button className="registration-button"
+                        type="button"
+                        id="sign-up-button">
                     Sign Up
                 </button>
                 <div className="back-to-login">
