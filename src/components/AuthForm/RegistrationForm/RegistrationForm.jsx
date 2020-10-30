@@ -1,7 +1,35 @@
 import React, {Component} from "react";
 import './RegistrationForm.css';
 
-class RegistrationForm extends Component{
+class RegistrationForm extends Component {
+    state = {
+        username: "",
+        email: "",
+        password: "",
+    }
+
+    setUsername = (event) => {
+        this.setState({
+            username: event.target.value,
+        })
+    }
+
+    setPassword = (event) => {
+        this.setState({
+            password: event.target.value,
+        })
+    }
+
+    setEmail = (event) => {
+        this.setState({
+            email: event.target.value,
+        })
+    }
+
+    handleRegistration = () => {
+
+    }
+
     render() {
         return (
             <div className="registration-form">
