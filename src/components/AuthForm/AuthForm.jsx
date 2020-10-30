@@ -17,7 +17,6 @@ class AuthForm extends Component {
     }
 
     render() {
-        console.log(this.state.something);
         let form = "This is a form."
         if (this.state.action === "login") {
             form = <LoginForm setForm={this.setForm}

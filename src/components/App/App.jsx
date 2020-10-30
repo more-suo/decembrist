@@ -7,7 +7,7 @@ import "./App.css";
 
 class App extends Component {
     state = {
-        app: "contest",
+        app: "auth",
     }
 
     setApp = (AppName) => {

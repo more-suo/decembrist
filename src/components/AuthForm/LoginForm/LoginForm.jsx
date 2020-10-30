@@ -32,7 +32,32 @@ class LoginForm extends Component {
             })
             return false;
         }
+
+        this.login();
         this.props.setApp("contest")
+    }
+
+
+    login = () => {
+        const api = "https://julia-api-server.herokuapp.com/api/"
+        let user = {
+            username: this.state.username,
+            password: this.state.password,
+        }
+        fetch(api + "token-auth/",{
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            }
+        })
+            .then( res => {
+                console.log(res)
+            })
+            .catch( err => {
+                console.log(err)
+            })
     }
 
     render() {

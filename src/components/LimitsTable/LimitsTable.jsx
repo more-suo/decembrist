@@ -3,6 +3,7 @@ import "./LimitsTable.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMemory, faHourglass} from "@fortawesome/free-solid-svg-icons";
 
+
 class LimitsTable extends Component {
     render() {
         return(
