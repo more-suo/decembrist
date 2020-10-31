@@ -6,6 +6,7 @@ class RegistrationForm extends Component {
         username: "",
         email: "",
         password: "",
+        info_message: "I need your future username, your e-mail & your future password.",
     }
 
     setUsername = (event) => {
@@ -27,6 +28,23 @@ class RegistrationForm extends Component {
     }
 
     handleRegistration = () => {
+        if (this.state.username === ""){
+            this.setState({
+                info_message: "I need your username, tell me!"
+            })
+            return false;
+        } else if (this.state.password === "") {
+            this.setState({
+                info_message: "I need your password too!"
+            })
+            return false;
+        } else if (this.state.email === "") {
+            this.setState({
+                info_message: "What about your email?"
+            })
+            return false;
+        }
+
         const api = "https://julia-api-server.herokuapp.com/api/"
         let user = {
             username: this.state.username,
@@ -57,8 +75,7 @@ class RegistrationForm extends Component {
                 <h2>Let's get acquainted!</h2>
                 <div className="form-info"
                      id="form-info">
-                    I need your future username, <br/>
-                    your e-mail & your future password.
+                    {this.state.info_message}
                 </div>
                 <label htmlFor="reg-username" />
                 <input type="text"
