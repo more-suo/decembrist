@@ -27,7 +27,28 @@ class RegistrationForm extends Component {
     }
 
     handleRegistration = () => {
+        const api = "https://julia-api-server.herokuapp.com/api/"
+        let user = {
+            username: this.state.username,
+            password: this.state.password,
+            email: this.state.email,
+        }
 
+        fetch(api + "users/",{
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            }
+        })
+            // .then( res => res.json())
+            .then( res => {
+                console.log(res.status);
+            })
+            .catch( err => {
+                console.log(err);
+            })
     }
 
     render() {
@@ -60,7 +81,8 @@ class RegistrationForm extends Component {
                        onChange={this.setPassword}/>
                 <button className="registration-button"
                         type="button"
-                        id="sign-up-button">
+                        id="sign-up-button"
+                        onClick={this.handleRegistration}>
                     Sign Up
                 </button>
                 <div className="back-to-login">
