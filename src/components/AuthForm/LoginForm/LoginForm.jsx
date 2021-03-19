@@ -33,10 +33,7 @@ class LoginForm extends Component {
             return false;
         }
 
-        let res = this.login();
-
-        if (res === 404)
-            this.props.setApp("contest")
+        this.login();
     }
 
 
@@ -47,7 +44,7 @@ class LoginForm extends Component {
             password: this.state.password,
         }
 
-        fetch(api + "token-auth/",{
+        fetch(api + "token-auth",{
             method: "POST",
             body: JSON.stringify(user),
             headers: {
@@ -55,9 +52,13 @@ class LoginForm extends Component {
                 'Accept': 'application/json',
             }
         })
-            // .then( res => res.json())
             .then( res => {
-                console.log(res.status);
+                console.log(res);
+                if (res.status === 200){
+                    let res_json = res.json();
+                    this.props.setActualJWT(res_json.token);
+                    this.props.setApp("contest");
+                }
             })
             .catch( err => {
                 console.log(err);
