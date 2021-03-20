@@ -52,12 +52,22 @@ class LoginForm extends Component {
                 'Accept': 'application/json',
             }
         })
-            .then( res => {
-                console.log(res);
-                if (res.status === 200){
-                    let res_json = res.json();
-                    this.props.setActualJWT(res_json.token);
-                    this.props.setApp("contest");
+            .then( (response) => {
+                return Promise.all([response.status, response.json()]);
+            })
+            .then( ([status, data]) => {
+                console.log(status);
+                console.log(data);
+                switch (status){
+                    case 200:
+                        this.props.setActualJWT(data.token);
+                        this.props.setApp("contest");
+                        break;
+                    case 400:
+                        // TODO: Wrong username or password
+                        break;
+                    default:
+                    // TODO: handle unexpected responses
                 }
             })
             .catch( err => {
