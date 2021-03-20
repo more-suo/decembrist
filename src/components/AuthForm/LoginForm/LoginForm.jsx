@@ -60,11 +60,48 @@ class LoginForm extends Component {
                 console.log(data);
                 switch (status){
                     case 200:
-                        this.props.setActualJWT(data.token);
+                        this.get_refresh_token(data.token);
                         this.props.setApp("contest");
                         break;
                     case 400:
                         // TODO: Wrong username or password
+                        break;
+                    default:
+                    // TODO: handle unexpected responses
+                }
+            })
+            .catch( err => {
+                console.log(err);
+            })
+    }
+
+    get_refresh_token = (JWT) => {
+        const api = "http://localhost:8000/api/"
+        let request = {
+            token: JWT,
+        }
+
+        fetch(api + "token-refresh",{
+            method: "POST",
+            body: JSON.stringify(request),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            }
+        })
+            .then( (response) => {
+                return Promise.all([response.status, response.json()]);
+            })
+            .then( ([status, data]) => {
+                console.log(status);
+                console.log(data);
+                switch (status){
+                    case 200:
+                        this.props.setActualJWT(data.token);
+                        this.props.setApp("contest");
+                        break;
+                    case 400:
+                        // TODO: Wrong token
                         break;
                     default:
                     // TODO: handle unexpected responses
