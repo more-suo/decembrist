@@ -7,7 +7,6 @@ import "./AuthForm.css";
 class AuthForm extends Component {
     state = {
         action: "login",
-        actual_jwt: null,
         something: {},
     }
 
@@ -17,18 +16,11 @@ class AuthForm extends Component {
         })
     }
 
-    setActualJWT = (jwt) => {
-        this.setState({
-            actual_jwt: jwt,
-        })
-    }
-
     render() {
         let form = "This is a form."
         if (this.state.action === "login") {
             form = <LoginForm setForm={this.setForm}
-                              setApp={this.props.setApp}
-                              setActualJWT={this.setActualJWT}/>
+                              setApp={this.props.setApp}/>
         } else if (this.state.action === "reset") {
             form = <ResetForm setForm={this.setForm}
                               setApp={this.props.setApp}/>

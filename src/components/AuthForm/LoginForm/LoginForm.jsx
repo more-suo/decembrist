@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import './LoginForm.css';
+import Cookies from 'universal-cookie';
+
 
 class LoginForm extends Component {
     state = {
@@ -97,7 +99,8 @@ class LoginForm extends Component {
                 console.log(data);
                 switch (status){
                     case 200:
-                        this.props.setActualJWT(data.token);
+                        const cookies = new Cookies();
+                        cookies.set('JWT', data.token, { path: '/', sameSite: 'lax', expires: new Date(Date.now()+604800) });
                         this.props.setApp("contest");
                         break;
                     case 400:
