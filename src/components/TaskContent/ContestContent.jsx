@@ -20,40 +20,52 @@ class ContestContent extends Component {
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        const apiUrl = "https://julia-api-server.herokuapp.com/api/";
+        const api = "http://localhost:8000/api/";
         nextProps.tasks.forEach( element => {
-            fetch(apiUrl + "tasks/" + element.toString(), {
+            fetch(api + "tasks/" + element.toString() + "/",{
+                method: "GET",
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
                 }
             })
-                .then(res => res.json())
-                .then(result => {
-                        this.state.tasks.push(result);
+                .then( (response) => {
+                    return Promise.all([response.status, response.json()]);
+                })
+                .then( ([status, data]) => {
+                    console.log(status);
+                    console.log(data);
+                    switch (status){
+                        case 200:
+                            this.state.tasks.push(data);
 
-                        let tab_contents = {};
-                        tab_contents[result.id] = (
-                            <TabContent title={result.title}
-                                        key={result.id}
-                                        tl={result.tl}
-                                        ml={result.ml}
-                                        content={result.content}
-                                        samples={result.samples}/>
-                        );
+                            let tab_contents = {};
+                            tab_contents[data.id] = (
+                                <TabContent title={data.title}
+                                            key={data.id}
+                                            tl={data.tl}
+                                            ml={data.ml}
+                                            content={data.content}
+                                            samples={data.samples}/>
+                            );
 
-                        let tab_titles = {};
-                        tab_titles[result.id] = result.title;
+                            let tab_titles = {};
+                            tab_titles[data.id] = data.title;
 
-                        this.setState({
-                            tabContents: {...this.state.tabContents, ...tab_contents},
-                            tabTitles: {...this.state.tabTitles, ...tab_titles},
-                        });
-
+                            this.setState({
+                                tabContents: {...this.state.tabContents, ...tab_contents},
+                                tabTitles: {...this.state.tabTitles, ...tab_titles},
+                            });
+                            break;
+                        case 404:
+                            // TODO: handle invalid task id
+                            break;
+                        default:
+                        // TODO: handle unexpected responses
                     }
-                )
-                .catch( error => {
-                    console.log(error);
+                })
+                .catch( err => {
+                    console.log(err);
                 })
         })
     }
