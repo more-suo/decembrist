@@ -45,58 +45,41 @@ class RegistrationForm extends Component {
             return false;
         }
 
-        const api = "http://localhost:8000/api/"
-        let user = {
-            username: this.state.username,
-            password: this.state.password,
-            email: this.state.email,
+        let options = {
             // TODO: Add email_template: some_file,
         }
 
-        fetch(api + "users/",{
-            method: "POST",
-            body: JSON.stringify(user),
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
+        this.props.api.createUser(
+            this.state.username,
+            this.state.password,
+            this.state.email,
+            options,
+        ).then( response => {
+            switch (response.status){
+                case 201:
+                    // TODO: Display a request to check mail and activate account
+                    break;
+                case 400:
+                    if (response.data.username) {
+                        console.log(response.data.password);
+                    }else if (response.data.password) {
+                        console.log(response.data.password);
+                    }else if (response.data.email){
+                        console.log(response.data.email);
+                    }else{
+                        console.log('A user with that username already exists.');
+                    }
+                    // TODO: handle invalid data from user: incorrect format or type of input data
+                    // if (email_template sent){ template does not contain substring {{link}} }
+                    break;
+                case 500:
+                    // TODO: handle server error while creating activation object
+                    // TODO: handle server error while emails are not sent
+                    break;
+                default:
+                    // TODO: handle unexpected responses
             }
         })
-            .then( (response) => {
-                return Promise.all([response.status, response.json()]);
-            })
-            .then( ([status, data]) => {
-                console.log(status);
-                console.log(data);
-                switch (status){
-                    case 201:
-                        // TODO: Display a request to check mail and activate account
-                        break;
-                    case 400:
-                        if (data.username) {
-                            console.log(data.password);
-                        }else if (data.password) {
-                            console.log(data.password);
-                        }else if (data.email){
-                            console.log(data.email);
-                        }else{
-                            console.log('A user with that username already exists.');
-                        }
-
-                        console.log(data);
-                        // TODO: handle invalid data from user: incorrect format or type of input data
-                        // if (email_template sent){ template does not contain substring {{link}} }
-                        break;
-                    case 500:
-                        // TODO: handle server error while creating activation object
-                        // TODO: handle server error while emails are not sent
-                        break;
-                    default:
-                        // TODO: handle unexpected responses
-                }
-            })
-            .catch( err => {
-                console.log(err);
-            })
     }
 
     render() {
