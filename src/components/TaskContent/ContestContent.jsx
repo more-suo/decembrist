@@ -19,55 +19,31 @@ class ContestContent extends Component {
         tasks: []
     }
 
-    componentWillReceiveProps(nextProps, nextContext) {
-        const api = "http://localhost:8000/api/";
-        nextProps.tasks.forEach( element => {
-            fetch(api + "tasks/" + element.toString() + "/",{
-                method: "GET",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                }
-            })
-                .then( (response) => {
-                    return Promise.all([response.status, response.json()]);
-                })
-                .then( ([status, data]) => {
-                    console.log(status);
-                    console.log(data);
-                    switch (status){
-                        case 200:
-                            this.state.tasks.push(data);
+    componentDidMount() {
+        this.props.api.listContestTasks(this.props.contest.id).then(
+            (response) => {
+                let tab_contents = {};
+                let tab_titles = {};
+                response.data.results.forEach(
+                    (task) => {
+                        tab_contents[task.id] = (
+                            <TabContent title={task.title}
+                                        key={task.id}
+                                        tl={task.tl}
+                                        ml={task.ml}
+                                        content={task.content}
+                                        samples={task.samples}/>
+                        );
+                        tab_titles[task.id] = task.title;
+                    })
 
-                            let tab_contents = {};
-                            tab_contents[data.id] = (
-                                <TabContent title={data.title}
-                                            key={data.id}
-                                            tl={data.tl}
-                                            ml={data.ml}
-                                            content={data.content}
-                                            samples={data.samples}/>
-                            );
-
-                            let tab_titles = {};
-                            tab_titles[data.id] = data.title;
-
-                            this.setState({
-                                tabContents: {...this.state.tabContents, ...tab_contents},
-                                tabTitles: {...this.state.tabTitles, ...tab_titles},
-                            });
-                            break;
-                        case 404:
-                            // TODO: handle invalid task id
-                            break;
-                        default:
-                        // TODO: handle unexpected responses
-                    }
-                })
-                .catch( err => {
-                    console.log(err);
-                })
-        })
+                this.setState({
+                    tasks: response.data.results,
+                    tabContents: {...this.state.tabContents, ...tab_contents},
+                    tabTitles: {...this.state.tabTitles, ...tab_titles},
+                });
+            }
+        )
     }
 
     toggleSidebar = () => {
@@ -77,7 +53,7 @@ class ContestContent extends Component {
     }
 
     handleKeyPress = (event) => {
-        console.log(event.key + " pressed")
+        // console.log(event.key + " pressed")
         if (event.key === "ArrowRight"){
             this.setState({
                 sidebarIsToggled: false,
@@ -104,7 +80,6 @@ class ContestContent extends Component {
         })
     }
 
-
     render() {
         const content = (
             <div className={`window-box ${this.state.sidebarIsToggled ? "closed-sidebar" : "open-sidebar"}`}>
@@ -128,7 +103,9 @@ class ContestContent extends Component {
                 <Sidebar isToggled={this.state.sidebarIsToggled}
                          tabTitles={this.state.tabTitles}
                          activeTab={this.state.activeTab}
-                         activateTab={this.activateTab}/>
+                         activateTab={this.activateTab}
+                         api={this.props.api}
+                         task={this.state.activeTab}/>
 
                 <FontAwesomeIcon onClick={this.toggleSidebar}
                                  icon={this.state.sidebarIsToggled? faAngleRight : faAngleLeft}
