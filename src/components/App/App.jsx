@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-// import Contest from "../Contest/Contest";
+import Contest from "../Contest/Contest";
 import MainPage from "../MainPage/MainPage";
 import "./App.css";
 import LoginForm from "../LoginForm/LoginForm";
@@ -8,6 +8,7 @@ import {JuliaAPI} from "julia-api"
 class App extends Component {
     constructor(props) {
         super(props);
+        this.api = new JuliaAPI('localhost:8000', false);
         this.state = {
             view: "login",
         }
@@ -15,18 +16,32 @@ class App extends Component {
 
     setApp = (AppName) => {
         this.setState({
-            app: AppName
+            view: AppName
         })
     }
 
     render() {
-        let api = new JuliaAPI('localhost:8000', false);
         let window = [];
+        let token = localStorage.getItem('JWT');
+        console.log(this.state);
+        if (token) {
+            this.api.refreshToken(token).then(
+                (response) => {
+                    if (response.status === 200) {
+                        this.api.setAuthToken(response.data.token);
+                        localStorage.setItem('JWT', response.data.token);
+                        this.setState( {
+                            view: "contest",
+                        })
+                    }
+                }
+            )
+        }
 
         if (this.state.view === "login"){
-            window.push(<LoginForm api={api}/>);
-        {/*} else if (this.state.app === "contest"){*/}
-        {/*    window.push(<Contest setApp={this.setApp}/>)*/}
+            window.push(<LoginForm api={this.api} setApp={this.setApp}/>);
+        } else if (this.state.view === "contest"){
+            window.push(<Contest api={this.api} setApp={this.setApp}/>);
         }else if (this.state.view === "main") {
             window.push(<MainPage setApp={this.setApp}/>);
         }else {

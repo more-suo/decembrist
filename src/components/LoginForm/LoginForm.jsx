@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import './LoginForm.css';
-// import Cookies from 'universal-cookie';
 
 
 class LoginForm extends Component {
@@ -47,6 +46,7 @@ class LoginForm extends Component {
                 switch (response.status){
                     case 200:
                         this.refreshToken(response.data.token);
+                        this.props.setApp('contest');
                         break;
                     case 400:
                         // TODO: Wrong username or password
@@ -64,10 +64,10 @@ class LoginForm extends Component {
     refreshToken = (token) => {
         this.props.api.refreshToken(token).then(
             (response) => {
-                console.log(response.data);
                 switch (response.status){
                     case 200:
                         this.props.api.setAuthToken(response.data.token);
+                        localStorage.setItem('JWT', response.data.token);
                         break;
                     default:
                         // TODO: handle unexpected responses
