@@ -105,7 +105,7 @@ class ContestContent extends Component {
                          activeTab={this.state.activeTab}
                          activateTab={this.activateTab}
                          api={this.props.api}
-                         task={this.state.activeTab}/>
+                         task_id={this.state.activeTab}/>
 
                 <FontAwesomeIcon onClick={this.toggleSidebar}
                                  icon={this.state.sidebarIsToggled? faAngleRight : faAngleLeft}

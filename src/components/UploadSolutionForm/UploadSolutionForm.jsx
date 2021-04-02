@@ -14,10 +14,31 @@ class UploadSolutionForm extends Component {
     }
 
     file_input = React.createRef();
-    handle_file_input = () => {
+    handle_file_input = (e) => {
         this.setState({
-            file_value: this.file_input.current.files[0]
+            file_value: e.target.files[0]
         })
+    }
+
+    sendSolution = () => {
+        let formData = new FormData();
+        formData.append('task', this.props.task_id)
+        formData.append('code', this.state.file_value)
+        formData.append('lang', this.state.lang_value)
+        this.props.api.createSolution(formData).then(
+            (response) => {
+                switch (response.status){
+                    case 201:
+                        console.log(response.data);
+                        break;
+                    case 400:
+                        break;
+                    case 404:
+                        break;
+                    default:
+                }
+            }
+        )
     }
 
     render() {
@@ -43,15 +64,16 @@ class UploadSolutionForm extends Component {
                                    type="file"
                                    id="upload-solution-ID"
                                    ref={this.file_input}
-                                   onChange={(e) => this.handle_file_input(e)}/>
+                                   onChange={this.handle_file_input}/>
                             <span>{file_input_text}</span>
                         </label>
 
                         <button className="send-solution-button"
-                                type="submit"
+                                type="button"
                                 name="send-solution-ID"
                                 value="Send_Solution"
-                                id="send-solution-ID">
+                                id="send-solution-ID"
+                                onClick={this.sendSolution}>
                             Send Solution
                         </button>
                     </form>
