@@ -90,7 +90,7 @@ class ContestContent extends Component {
                                 this.state.activeTab === 0?
                                     <GreetMessage sidebarIsToggled={this.state.sidebarIsToggled} toggleSidebar={this.toggleSidebar}/> :
                                     this.state.tabContents[this.state.activeTab] :
-                                <StandingsTable taskTitles={this.state.tabTitles}/>
+                                <StandingsTable api={this.props.api} taskTitles={this.state.tabTitles}/>
                         }
                     </div>
                 </div>
