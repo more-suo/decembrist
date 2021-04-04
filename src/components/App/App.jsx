@@ -10,7 +10,7 @@ class App extends Component {
         super(props);
         this.api = new JuliaAPI('localhost:8000', false);
         this.state = {
-            view: "login",
+            view: "contest",
         }
     }
 
@@ -20,11 +20,13 @@ class App extends Component {
         })
     }
 
-    render() {
-        let window = [];
+    componentDidMount() {
         let token = localStorage.getItem('JWT');
-        console.log(this.state);
-        if (token) {
+        if (!token){
+            this.setState( {
+                view: "login",
+            })
+        }else{
             this.api.refreshToken(token).then(
                 (response) => {
                     if (response.status === 200) {
@@ -37,13 +39,19 @@ class App extends Component {
                 }
             )
         }
+    }
+
+    render() {
+        let window = [];
 
         if (this.state.view === "login"){
-            window.push(<LoginForm api={this.api} setApp={this.setApp}/>);
+            return (<LoginForm api={this.api} setApp={this.setApp}/>);
         } else if (this.state.view === "contest"){
-            window.push(<Contest api={this.api} setApp={this.setApp}/>);
-        }else if (this.state.view === "main") {
-            window.push(<MainPage setApp={this.setApp}/>);
+            return (<Contest api={this.api} setApp={this.setApp}/>);
+        // }else if (this.state.view === "main") {
+            // window.push(<MainPage setApp={this.setApp}/>);
+        }else if (this.state.view === "undefined") {
+            window.push(<p> Loading... </p>);
         }else {
             window.push(<h1 className="errorMessage">What are you trying to do? Error 404! :|</h1>);
         }
