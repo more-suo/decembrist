@@ -35,6 +35,10 @@ class App extends Component {
                         this.setState( {
                             view: "contest",
                         })
+                    }else{
+                        this.setState( {
+                            view: "login",
+                        })
                     }
                 }
             )
