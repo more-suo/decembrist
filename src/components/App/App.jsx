@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import Contest from "../Contest/Contest";
-import MainPage from "../MainPage/MainPage";
+// import MainPage from "../MainPage/MainPage";
 import "./App.css";
-import LoginForm from "../LoginForm/LoginForm";
+import AuthForm from "../AuthForm/AuthForm";
 import {JuliaAPI} from "julia-api"
 
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
         let token = localStorage.getItem('JWT');
         if (!token){
             this.setState( {
-                view: "login",
+                view: "auth",
             })
         }else{
             this.api.refreshToken(token).then(
@@ -37,7 +37,7 @@ class App extends Component {
                         })
                     }else{
                         this.setState( {
-                            view: "login",
+                            view: "auth",
                         })
                     }
                 }
@@ -48,8 +48,8 @@ class App extends Component {
     render() {
         let window = [];
 
-        if (this.state.view === "login"){
-            return (<LoginForm api={this.api} setApp={this.setApp}/>);
+        if (this.state.view === "auth"){
+            return (<AuthForm api={this.api} setApp={this.setApp}/>);
         } else if (this.state.view === "contest"){
             return (<Contest api={this.api} setApp={this.setApp}/>);
         // }else if (this.state.view === "main") {

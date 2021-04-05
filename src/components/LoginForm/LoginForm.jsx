@@ -97,14 +97,14 @@ class LoginForm extends Component {
                 </button>
                 <div className="change-form">
                     <div className="reset-password">
-                         {/*<span onClick={this.props.setForm.bind(this, "reset")} id="change-to-reset-password-form">*/}
-                         {/*    I forgot my password.*/}
-                         {/*</span>*/}
+                         <span onClick={this.props.setForm.bind(this, "reset")} id="change-to-reset-password-form">
+                             I forgot my password.
+                         </span>
                     </div>
                     <div className="registration">
-                         {/*<span onClick={this.props.setForm.bind(this, "registration")} id="change-to-registration-form">*/}
-                         {/*    We're not acquainted.*/}
-                         {/*</span>*/}
+                         <span onClick={this.props.setForm.bind(this, "registration")} id="change-to-registration-form">
+                             We're not acquainted.
+                         </span>
                     </div>
                 </div>
             </div>
