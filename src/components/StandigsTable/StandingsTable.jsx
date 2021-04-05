@@ -40,7 +40,9 @@ class StandingsTable extends Component {
                     ).then(
                         response => {
                             result.attempts.map((e, i) => [e, result.decision_time[i]]).map(
-                                (attempts, decision_time) => { rows.push(<th scope="col"> {attempts} </th>) }
+                                ([attempts, decision_time]) => { rows.push(
+                                    <th scope="col"> <p>{attempts}</p> <p>{this.format_time(decision_time)}</p> </th>
+                                ) }
                             )
                         }
                     ).then(
@@ -49,7 +51,6 @@ class StandingsTable extends Component {
                             this.setState({
                                 username_counter_loading: this.state.username_counter_loading++,
                             })
-                            console.log(123)
                         }
                     )
                 })
@@ -62,6 +63,13 @@ class StandingsTable extends Component {
                 })
             }
         )
+    }
+
+    format_time(seconds) {
+        if (!seconds){
+            return ''
+        }
+        return `${Math.floor(seconds / 60)}:${seconds % 60}`
     }
 
     render() {
