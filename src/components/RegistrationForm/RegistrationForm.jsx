@@ -45,9 +45,31 @@ class RegistrationForm extends Component {
             return false;
         }
 
-        let options = {
-            // TODO: Add email_template: some_file,
-        }
+        let options = new FormData();
+        let parts = [
+            'Hey, that\'s Julia. I am glad to see that you want to sign up. Plese press this button to verify your account:\n' +
+            '\n' +
+            '<table width="100%" border="0" cellspacing="0" cellpadding="0">\n' +
+            '    <tr>\n' +
+            '        <td>\n' +
+            '            <table border="0" cellspacing="0" cellpadding="0">\n' +
+            '                <tr>\n' +
+            '                    <td bgcolor="#000000" style="padding: 12px 18px 12px 18px; border-radius:3px" align="center"><a href="{{link}}" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #ffffff; text-decoration: none; display: inline-block;">Verify &rarr;</a></td>\n' +
+            '                </tr>\n' +
+            '            </table>\n' +
+            '        </td>\n' +
+            '    </tr>\n' +
+            '</table>\n' +
+            '\n' +
+            'If you don\'t know what I\'m talking about, just ignore this message.'
+        ];
+        console.log(this.props.api)
+
+        let file = new File(parts, 'decembrist_registration_template.html', {
+            type: "text/html"
+        });
+
+        options.append('email_template', file);
 
         this.props.api.createUser(
             this.state.username,
