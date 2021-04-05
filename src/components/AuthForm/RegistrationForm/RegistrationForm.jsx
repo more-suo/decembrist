@@ -45,11 +45,12 @@ class RegistrationForm extends Component {
             return false;
         }
 
-        const api = "https://julia-api-server.herokuapp.com/api/"
+        const api = "http://localhost:8000/api/"
         let user = {
             username: this.state.username,
             password: this.state.password,
             email: this.state.email,
+            // TODO: Add email_template: some_file,
         }
 
         fetch(api + "users/",{
@@ -60,9 +61,38 @@ class RegistrationForm extends Component {
                 'Accept': 'application/json',
             }
         })
-            // .then( res => res.json())
-            .then( res => {
-                console.log(res.status);
+            .then( (response) => {
+                return Promise.all([response.status, response.json()]);
+            })
+            .then( ([status, data]) => {
+                console.log(status);
+                console.log(data);
+                switch (status){
+                    case 201:
+                        // TODO: Display a request to check mail and activate account
+                        break;
+                    case 400:
+                        if (data.username) {
+                            console.log(data.password);
+                        }else if (data.password) {
+                            console.log(data.password);
+                        }else if (data.email){
+                            console.log(data.email);
+                        }else{
+                            console.log('A user with that username already exists.');
+                        }
+
+                        console.log(data);
+                        // TODO: handle invalid data from user: incorrect format or type of input data
+                        // if (email_template sent){ template does not contain substring {{link}} }
+                        break;
+                    case 500:
+                        // TODO: handle server error while creating activation object
+                        // TODO: handle server error while emails are not sent
+                        break;
+                    default:
+                        // TODO: handle unexpected responses
+                }
             })
             .catch( err => {
                 console.log(err);

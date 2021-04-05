@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import './LoginForm.css';
+import Cookies from 'universal-cookie';
+
 
 class LoginForm extends Component {
     state = {
@@ -33,10 +35,7 @@ class LoginForm extends Component {
             return false;
         }
 
-        let res = this.login();
-
-        if (res === 404)
-            this.props.setApp("contest")
+        this.login();
     }
 
 
@@ -47,7 +46,7 @@ class LoginForm extends Component {
             password: this.state.password,
         }
 
-        fetch(api + "token-auth/",{
+        fetch(api + "token-auth",{
             method: "POST",
             body: JSON.stringify(user),
             headers: {
@@ -55,9 +54,61 @@ class LoginForm extends Component {
                 'Accept': 'application/json',
             }
         })
-            // .then( res => res.json())
-            .then( res => {
-                console.log(res.status);
+            .then( (response) => {
+                return Promise.all([response.status, response.json()]);
+            })
+            .then( ([status, data]) => {
+                console.log(status);
+                console.log(data);
+                switch (status){
+                    case 200:
+                        this.get_refresh_token(data.token);
+                        this.props.setApp("contest");
+                        break;
+                    case 400:
+                        // TODO: Wrong username or password
+                        break;
+                    default:
+                    // TODO: handle unexpected responses
+                }
+            })
+            .catch( err => {
+                console.log(err);
+            })
+    }
+
+    get_refresh_token = (JWT) => {
+        const api = "http://localhost:8000/api/"
+        let request = {
+            token: JWT,
+        }
+
+        fetch(api + "token-refresh",{
+            method: "POST",
+            body: JSON.stringify(request),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            }
+        })
+            .then( (response) => {
+                return Promise.all([response.status, response.json()]);
+            })
+            .then( ([status, data]) => {
+                console.log(status);
+                console.log(data);
+                switch (status){
+                    case 200:
+                        const cookies = new Cookies();
+                        cookies.set('JWT', data.token, { path: '/', sameSite: 'lax', expires: new Date(Date.now()+604800) });
+                        this.props.setApp("contest");
+                        break;
+                    case 400:
+                        // TODO: Wrong token
+                        break;
+                    default:
+                    // TODO: handle unexpected responses
+                }
             })
             .catch( err => {
                 console.log(err);
