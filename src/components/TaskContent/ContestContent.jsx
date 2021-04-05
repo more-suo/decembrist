@@ -11,7 +11,7 @@ import "./ContestContent.css";
 
 class ContestContent extends Component {
     state = {
-        activeTab: 0,
+        activeTab: -1,
         sidebarIsToggled: true,
         tableIsToggled: true,
         tabContents: {},
@@ -87,7 +87,7 @@ class ContestContent extends Component {
                     <div className="ContestContent">
                         {
                             this.state.tableIsToggled?
-                                this.state.activeTab === 0?
+                                this.state.activeTab === -1?
                                     <GreetMessage sidebarIsToggled={this.state.sidebarIsToggled} toggleSidebar={this.toggleSidebar}/> :
                                     this.state.tabContents[this.state.activeTab] :
                                 <StandingsTable api={this.props.api} taskTitles={this.state.tabTitles}/>

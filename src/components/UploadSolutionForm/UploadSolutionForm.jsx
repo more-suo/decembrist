@@ -21,6 +21,10 @@ class UploadSolutionForm extends Component {
     }
 
     sendSolution = () => {
+        if (this.props.task_id === -1){
+            // TODO: No one task is selected
+            return false
+        }
         let formData = new FormData();
         formData.append('task', this.props.task_id)
         formData.append('code', this.state.file_value)
