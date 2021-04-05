@@ -1,0 +1,68 @@
+input[type="text"],
+input[type="password"] {
+    background: none;
+    display: block;
+    margin: 1em auto;
+    text-align: center;
+    border: 2px solid black;
+    width: 21em;
+    height: 2.7em;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    width: 20em;
+    /*border-color: white;*/
+    border-color: black;
+}
+
+.reset-button {
+    /*background: rgba(0, 0, 0, .5);*/
+    background: rgba(255, 255, 255, .5);
+    display: block;
+    margin: 1em auto;
+    text-align: center;
+    /*border: 2px solid white;*/
+    border: 2px solid black;
+    outline: none;
+    /*color: rgba(255, 255, 255, .9);*/
+    color: rgba(0, 0, 0, .9);
+    border-radius: 24px;
+    transition: 0.5s;
+    width: 21em;
+    height: 2.7em;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.reset-button:hover {
+    /*background: white;*/
+    background: black;
+    /*color: black;*/
+    color: white;
+    width: 20em;
+}
+
+.unusual-actions {
+    padding-bottom: .5em;
+    font-size: .9em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: table;
+}
+
+.back-to-login:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.back-to-login {
+    padding-bottom: .5em;
+    font-size: .9em;
+}
