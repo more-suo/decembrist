@@ -1,0 +1,19 @@
+.StandingsTable {
+    width: 100%;
+    margin: auto;
+    border: black solid 1px;
+    border-radius: 5px;
+}
+
+.StandingsTable thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+}
+
+.StandingsTable td,
+.StandingsTable th {
+    padding: .75rem;
+    vertical-align: top;
+    border-bottom: 1px solid black;
+}
