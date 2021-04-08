@@ -16,6 +16,12 @@ class Contest extends Component {
         );
     }
 
+    componentWillUnmount() {
+        if (this.props.api.source){
+            this.props.api.source.cancel("Landing Component got unmounted");
+        }
+    }
+
     render() {
         return this.state.contest ? <ContestContent api={this.props.api} contest={this.state.contest}/> : null
     }

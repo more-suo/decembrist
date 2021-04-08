@@ -4,14 +4,17 @@ import Contest from "../Contest/Contest";
 import "./App.css";
 import AuthForm from "../AuthForm/AuthForm";
 import {JuliaAPI} from "julia-api"
+import Cookies from 'js-cookie'
+
 
 class App extends Component {
+    state = {
+        view: !!Cookies.get('JWT')?'contest':'auth',
+    }
+
     constructor(props) {
         super(props);
         this.api = new JuliaAPI('localhost:8000', false);
-        this.state = {
-            view: "contest",
-        }
     }
 
     setApp = (AppName) => {
@@ -20,34 +23,8 @@ class App extends Component {
         })
     }
 
-    componentDidMount() {
-        let token = localStorage.getItem('JWT');
-        if (!token){
-            this.setState( {
-                view: "auth",
-            })
-        }else{
-            this.api.refreshToken(token).then(
-                (response) => {
-                    if (response.status === 200) {
-                        this.api.setAuthToken(response.data.token);
-                        localStorage.setItem('JWT', response.data.token);
-                        this.setState( {
-                            view: "contest",
-                        })
-                    }else{
-                        this.setState( {
-                            view: "auth",
-                        })
-                    }
-                }
-            )
-        }
-    }
-
     render() {
         let window = [];
-
         if (this.state.view === "auth"){
             return (<AuthForm api={this.api} setApp={this.setApp}/>);
         } else if (this.state.view === "contest"){

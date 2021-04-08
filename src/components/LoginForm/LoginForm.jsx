@@ -45,7 +45,6 @@ class LoginForm extends Component {
             (response) => {
                 switch (response.status){
                     case 200:
-                        this.refreshToken(response.data.token);
                         this.props.setApp('contest');
                         break;
                     case 400:
@@ -58,21 +57,6 @@ class LoginForm extends Component {
             }
 
 
-        )
-    }
-
-    refreshToken = (token) => {
-        this.props.api.refreshToken(token).then(
-            (response) => {
-                switch (response.status){
-                    case 200:
-                        this.props.api.setAuthToken(response.data.token);
-                        localStorage.setItem('JWT', response.data.token);
-                        break;
-                    default:
-                        // TODO: handle unexpected responses
-                }
-            }
         )
     }
 
