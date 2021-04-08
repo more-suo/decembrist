@@ -1,13 +1,15 @@
 import React, {Component} from "react";
 import './LoginForm.css';
-import Cookies from 'universal-cookie';
 
 
 class LoginForm extends Component {
-    state = {
-        username: "",
-        password: "",
-        info_message: "Tell me your username and password."
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: "",
+            password: "",
+            info_message: "Tell me your username and password."
+        }
     }
 
     setUsername = (event) => {
@@ -38,81 +40,24 @@ class LoginForm extends Component {
         this.login();
     }
 
-
     login = () => {
-        const api = "https://julia-api-server.herokuapp.com/api/"
-        let user = {
-            username: this.state.username,
-            password: this.state.password,
-        }
-
-        fetch(api + "token-auth",{
-            method: "POST",
-            body: JSON.stringify(user),
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            }
-        })
-            .then( (response) => {
-                return Promise.all([response.status, response.json()]);
-            })
-            .then( ([status, data]) => {
-                console.log(status);
-                console.log(data);
-                switch (status){
+        this.props.api.obtainToken(this.state.username, this.state.password).then(
+            (response) => {
+                switch (response.status){
                     case 200:
-                        this.get_refresh_token(data.token);
-                        this.props.setApp("contest");
+                        this.props.setApp('contest');
                         break;
                     case 400:
                         // TODO: Wrong username or password
+                        console.log(response.data);
                         break;
                     default:
-                    // TODO: handle unexpected responses
+                        // TODO: handle unexpected responses
                 }
-            })
-            .catch( err => {
-                console.log(err);
-            })
-    }
-
-    get_refresh_token = (JWT) => {
-        const api = "http://localhost:8000/api/"
-        let request = {
-            token: JWT,
-        }
-
-        fetch(api + "token-refresh",{
-            method: "POST",
-            body: JSON.stringify(request),
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
             }
-        })
-            .then( (response) => {
-                return Promise.all([response.status, response.json()]);
-            })
-            .then( ([status, data]) => {
-                console.log(status);
-                console.log(data);
-                switch (status){
-                    case 200:
-                        const cookies = new Cookies();
-                        cookies.set('JWT', data.token, { path: '/', sameSite: 'lax', expires: new Date(Date.now()+604800) });
-                        this.props.setApp("contest");
-                        break;
-                    case 400:
-                        // TODO: Wrong token
-                        break;
-                    default:
-                    // TODO: handle unexpected responses
-                }
-            })
-            .catch( err => {
-                console.log(err);
-            })
+
+
+        )
     }
 
     render() {

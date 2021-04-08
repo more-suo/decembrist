@@ -3,32 +3,27 @@ import ContestContent from "../TaskContent/ContestContent";
 
 class Contest extends Component {
     state = {
-        tasks: [],
+        contest: null,
     }
 
     componentWillMount() {
-        const apiUrl = "https://julia-api-server.herokuapp.com/api/";
-        fetch(apiUrl + "contests", {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
+        this.props.api.listContests().then(
+            (response) => {
+                this.setState({
+                    contest: response.data.results[0]
+                });  // TODO: What if there are no contests?
             }
-        })
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState(result.results[0]);
-                }
-            )
-            .catch(
-                console.log
-            )
+        );
+    }
+
+    componentWillUnmount() {
+        if (this.props.api.source){
+            this.props.api.source.cancel("Landing Component got unmounted");
+        }
     }
 
     render() {
-        return (
-            <ContestContent tasks={this.state.tasks}/>
-        )
+        return this.state.contest ? <ContestContent api={this.props.api} contest={this.state.contest}/> : null
     }
 }
 

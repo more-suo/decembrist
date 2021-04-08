@@ -12,7 +12,8 @@ class Sidebar extends Component {
                 <Tabs tabsTitle={this.props.tabTitles}
                       activeTab={this.props.activeTab}
                       activateTab={this.props.activateTab}/>
-                <UploadSolutionForm />
+                <UploadSolutionForm api={this.props.api}
+                                    task_id={this.props.task_id}/>
             </div>
         )
     }

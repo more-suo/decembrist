@@ -5,11 +5,11 @@ class SamplesTable extends Component {
     render() {
         const samples = this.props.samples
         let samples_rows = []
-        for (let i = 0; i < samples[0].length; i++){
+        for (let i = 0; i < samples.length; i++){
             samples_rows.push(
                 <tr key={i}>
-                    <td><code>{samples[0][i]}</code></td>
-                    <td><code>{samples[1][i]}</code></td>
+                    <td><code>{samples[i][0]}</code></td>
+                    <td><code>{samples[i][1]}</code></td>
                 </tr>
             )
         }
